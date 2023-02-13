@@ -1,7 +1,19 @@
 import logo from './logo.svg';
 import './App.css';
+import { observer } from 'mobx-react-lite';
+import { useEffect } from 'react';
+import { useStore } from './stores/store';
 
 function App() {
+  const { basesStore } = useStore();
+  
+  useEffect(() => {
+    const getBase = async() => {
+      let base = basesStore.getBase().then(res => console.log(res))
+    }
+    getBase();
+  }, [])
+
   return (
     <div className="App">
       <header className="App-header">
@@ -22,4 +34,4 @@ function App() {
   );
 }
 
-export default App;
+export default observer(App);
