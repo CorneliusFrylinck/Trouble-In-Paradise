@@ -2,13 +2,17 @@ import { makeAutoObservable } from "mobx";
 import agent from "../api/agent.js";
 
 export default class BasesStore {
-    base = null;
+    base = undefined;
 
     constructor() {
         makeAutoObservable(this);
     }
 
-    getBase = async () => {
+    retrieveBase = async () => {
         return await agent.BaseRequests.get("bases");
+    }
+
+    getBase = () => {
+        return this.base;
     }
 }

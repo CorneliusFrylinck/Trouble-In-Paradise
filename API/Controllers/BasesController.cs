@@ -21,13 +21,15 @@ namespace API.Controllers
             ResourceItem item7 = new ResourceItem("Crystal_Blue", "Resource used for building and upgrading buildings, and creating and upgrading units, as well as keeping units alive and buildings functional.", 0, 100, 7);
             ResourceItem item8 = new ResourceItem("Crystal_Red", "Resource used for building and upgrading buildings, and creating and upgrading units, as well as keeping units alive and buildings functional.", 0, 100, 8);
 
+            ResourceStore resourceStore = new ResourceStore();
 
             var base1 = new Base("MyBase")
             {
-                Resources = new List<ResourceItem>()
+                ResourceBuildings = new List<ResourceItem>()
                 {
                     item1, item2, item3, item4, item5, item6, item7, item8
-                }
+                },
+                Resources = resourceStore
             };
 
             return Ok(base1);
