@@ -27,7 +27,7 @@ namespace API.Controllers
             Building b2 = new Building("Guild Hub", "This is where you can create a guild, join a guild, communicate with your guild and access guild-related actions.", 1, 2);
             Building b4 = new Building("Barracks", "This is where you build your army. Build units and assign them to squads.", 1, 4);
             Building b13 = new Building("Warroom", "This is where you manage your army. Send your squads out to attack, move them strategically or assign them to train and get stronger.", 1, 13);
-            Building b14 = new Building("Naviation Unit", "This building is used to view the area around you.", 1, 14);
+            Building b14 = new Building("Navigational Unit", "This building is used to view the area around you.", 1, 14);
             Building b3 = new Building("Radar", "This building picks up enemy attacks and any troop movement to your base.", 1, 3);
             Building b5 = new Building("Medical Facility", "This building is used to heal your troops after they get hurt.", 1, 5);
             Building b6 = new Building("Research Facility", "This building is used to unlock new units and abilities.", 1, 6);

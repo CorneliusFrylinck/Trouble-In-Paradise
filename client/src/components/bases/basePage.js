@@ -13,7 +13,7 @@ const BasePage = ({base}) => {
                 <ResourceList resources={base.resources} />
             </div>
             <div className="list-container">
-                <BuildingList buildings={base.resources} />
+                <BuildingList buildings={base.buildings} />
             </div>
         </div>
     )
