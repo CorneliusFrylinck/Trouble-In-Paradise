@@ -23,13 +23,31 @@ namespace API.Controllers
 
             ResourceStore resourceStore = new ResourceStore();
 
+            Building b1 = new Building("Command Centre", "This is your center of communication. Upgrading this building can also unlock new options on other buildings.", 1, 1);
+            Building b2 = new Building("Guild Hub", "This is where you can create a guild, join a guild, communicate with your guild and access guild-related actions.", 1, 2);
+            Building b4 = new Building("Barracks", "This is where you build your army. Build units and assign them to squads.", 1, 4);
+            Building b13 = new Building("Warroom", "This is where you manage your army. Send your squads out to attack, move them strategically or assign them to train and get stronger.", 1, 13);
+            Building b14 = new Building("Naviation Unit", "This building is used to view the area around you.", 1, 14);
+            Building b3 = new Building("Radar", "This building picks up enemy attacks and any troop movement to your base.", 1, 3);
+            Building b5 = new Building("Medical Facility", "This building is used to heal your troops after they get hurt.", 1, 5);
+            Building b6 = new Building("Research Facility", "This building is used to unlock new units and abilities.", 1, 6);
+            Building b7 = new Building("Tradepost", "This building is used to send resources to other players.", 1, 7);
+            Building b8 = new Building("Market", "This building is used to trade resources with locals of the new planet.", 1, 8);
+            Building b9 = new Building("Silos", "Upgrade these buildings to increase your resource storage capabilities.", 1, 9);
+            Building b10 = new Building("Vaults", "These buildings are used to protect your resources from raiders.", 1, 10);
+            Building b11 = new Building("Bunkers", "These buildings offer protection to your ranged units when defending.", 1, 11);
+            Building b12 = new Building("Shield", "Your shield offers all units and buildings protection when you are being attacked.", 1, 12);
+
+            ICollection<Building> buildings = new List<Building>() { b1, b2, b3, b4, b5, b6, b7, b8, b9, b10, b11, b12, b13, b14 };
+
             var base1 = new Base("MyBase")
             {
                 ResourceBuildings = new List<ResourceItem>()
                 {
                     item1, item2, item3, item4, item5, item6, item7, item8
                 },
-                Resources = resourceStore
+                Resources = resourceStore,
+                Buildings = buildings
             };
 
             return Ok(base1);

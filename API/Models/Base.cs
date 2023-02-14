@@ -15,5 +15,6 @@ namespace API.Models
         public Vector2 Position { get; set; }
         public ResourceStore Resources { get; set; }
         public ICollection<ResourceItem> ResourceBuildings { get; set; } = new List<ResourceItem>();
+        public ICollection<Building> Buildings { get; set; } = new List<Building>();
     }
 }
