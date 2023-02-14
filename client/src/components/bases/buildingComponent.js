@@ -1,5 +1,6 @@
 import { observer } from "mobx-react-lite";
 import React from "react";
+import { Link } from "react-router-dom";
 
 const BuildingComponent = (building) => {
     let data = building.building;
@@ -40,7 +41,7 @@ const BuildingComponent = (building) => {
     }
 
     return (
-        <div style={{color: getColor()}} className="text-left">{data.name}</div>
+        <Link to={"/building/" + data.name} style={{color: getColor()}} className="text-left building">{data.name}</Link>
     )
 }
 
