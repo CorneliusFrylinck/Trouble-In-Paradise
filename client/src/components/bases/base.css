@@ -12,8 +12,9 @@
     justify-content: center;
 }
 
-.resource-item {
+.resource-component {
     padding: 0 0.5rem;
+    text-decoration: none;
 }
 
 .text-left {

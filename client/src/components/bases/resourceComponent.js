@@ -3,11 +3,11 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const ResourceComponent = ({
-    name, production, available
+    name, production, available, color
 }) => {
     return (
         <>
-            <Link to={"resource/"+name} className="resource-item">{name}: {available} ({production}/h)</Link>
+            <Link to={"resource/"+name} style={{color: color}} className="resource-component">{name}: {available} ({production}/h)</Link>
         </>
     )
 }
