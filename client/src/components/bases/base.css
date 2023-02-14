@@ -1,0 +1,24 @@
+.resource-list {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.list-container {
+}
+
+.base-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.resource-item {
+    padding: 0 0.5rem;
+}
+
+.text-left {
+    text-align: left;
+    padding-bottom: 0;
+    margin-left: 0.4rem;
+    margin-bottom: 0;
+}

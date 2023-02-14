@@ -1,12 +1,13 @@
 import { observer } from "mobx-react-lite";
 import React from "react";
+import { Link } from "react-router-dom";
 
 const ResourceComponent = ({
     name, production, available
 }) => {
     return (
         <>
-            <div>{name}: {available} ({production}/h)</div>
+            <Link to={"resource/"+name} className="resource-item">{name}: {available} ({production}/h)</Link>
         </>
     )
 }
