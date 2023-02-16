@@ -41,7 +41,7 @@ const BuildingComponent = (building) => {
     }
 
     return (
-        <Link to={"/building/" + data.name} style={{color: getColor()}} className="text-left building">{data.name}</Link>
+        <Link to={"/building/" + data.name} style={{color: getColor()}} className="text-left building">{data.name} ({data.level})</Link>
     )
 }
 
