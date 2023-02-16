@@ -14,6 +14,7 @@ namespace API.Data
         public DbSet<Building> Buildings { get; set; } = null!;
         public DbSet<ResourceItem> ResourceItems { get; set; } = null!;
         public DbSet<ResourceStore> ResourceStores { get; set; } = null!;
+        public DbSet<Event> Events { get; set; } = null!;
 
         /// <summary>
         /// Seed data on model creation.
