@@ -1,4 +1,5 @@
 using API.Data;
+using API.Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -12,8 +13,10 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddCors();
 builder.Services.AddDbContext<BetaContext>(options =>
 {
-    options.UseSqlite("Data Source=Data/Beta.db");
+    options.UseLazyLoadingProxies();
+    options.UseSqlite(builder.Configuration["ConnectionStrings:BetaConnectionString"]);
 });
+builder.Services.AddTransient<IBasesRepository, BasesRepository>();
 
 var app = builder.Build();
 

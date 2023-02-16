@@ -3,6 +3,9 @@ using System.ComponentModel.DataAnnotations;
 
 namespace API.Domain
 {
+    /// <summary>
+    /// The resources currently on a base.
+    /// </summary>
     public class ResourceStore
     {
         public ResourceStore()
@@ -17,6 +20,33 @@ namespace API.Domain
             Crystal_Red = 3000;
             Gold = 1000;
         }
+        public ResourceStore(int baseId)
+        {
+            Metal = 3000;
+            Cement = 3000;
+            Lumber = 3000;
+            Water = 3000;
+            Food = 3000;
+            Oxygen = 3000;
+            Crystal_Blue = 3000;
+            Crystal_Red = 3000;
+            Gold = 1000;
+            BaseId = baseId;
+        }
+        public ResourceStore(int baseId, int id)
+        {
+            Metal = 3000;
+            Cement = 3000;
+            Lumber = 3000;
+            Water = 3000;
+            Food = 3000;
+            Oxygen = 3000;
+            Crystal_Blue = 3000;
+            Crystal_Red = 3000;
+            Gold = 1000;
+            BaseId = baseId;
+            Id = id;
+        }
 
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -30,5 +60,6 @@ namespace API.Domain
         public int Crystal_Blue { get; set; }
         public int Crystal_Red { get; set; }
         public int Gold { get; set; }
+        public int BaseId { get; set; }
     }
 }
