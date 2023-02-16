@@ -9,7 +9,7 @@ export default class BasesStore {
     }
 
     retrieveBase = async () => {
-        return await agent.BaseRequests.get("bases");
+        return await agent.BaseRequests.getBaseById(1);
     }
 
     getBase = () => {

@@ -1,2 +1,36 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+
+# Build folders
+[Bb]in/
+[Oo]bj/
+
+# Build results
+[Dd]ebug/
+[Rr]elease/
+x64/
+*_i.c
+*_p.c
+*.ilk
+*.meta
+*.obj
+*.pch
+*.pdb
+*.pgc
+*.pgd
+*.rsp
+*.sbr
+*.tlb
+*.tli
+*.tlh
+*.tmp
+*.log
+*.vspscc
+*.vssscc
+.builds
+
+# Other
+.dll
+.pdb
+.cache
+.exe

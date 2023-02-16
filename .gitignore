@@ -1,0 +1,13 @@
+
+*.pdb
+*.v2
+*.vsidx
+*.vsidx
+API/.vs/API/v17/.suo
+*.dll
+*.pdb
+*.dll
+*.db
+*.db-shm
+*.db-wal
+*.dll
