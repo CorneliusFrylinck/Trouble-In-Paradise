@@ -51,15 +51,15 @@ namespace API.Domain
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-        public int Metal { get; set; }
-        public int Cement { get; set; }
-        public int Lumber { get; set; }
-        public int Water { get; set; }
-        public int Food { get; set; }
-        public int Oxygen { get; set; }
-        public int Crystal_Blue { get; set; }
-        public int Crystal_Red { get; set; }
-        public int Gold { get; set; }
+        public double Metal { get; set; }
+        public double Cement { get; set; }
+        public double Lumber { get; set; }
+        public double Water { get; set; }
+        public double Food { get; set; }
+        public double Oxygen { get; set; }
+        public double Crystal_Blue { get; set; }
+        public double Crystal_Red { get; set; }
+        public double Gold { get; set; }
         public int BaseId { get; set; }
     }
 }

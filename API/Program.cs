@@ -17,6 +17,7 @@ builder.Services.AddDbContext<BetaContext>(options =>
     options.UseSqlite(builder.Configuration["ConnectionStrings:BetaConnectionString"]);
 });
 builder.Services.AddTransient<IBasesRepository, BasesRepository>();
+builder.Services.AddTransient<IEventsRepository, EventsRepository>();
 
 var app = builder.Build();
 

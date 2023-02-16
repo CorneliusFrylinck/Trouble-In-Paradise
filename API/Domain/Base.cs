@@ -62,6 +62,8 @@ namespace API.Domain
         [DefaultValue(1)]
         public int BaseY { get; set; }
 
+        public DateTime Created { get; set; } = DateTime.UtcNow;
+
         /// <summary>
         /// The resources currently existing on the base.
         /// </summary>

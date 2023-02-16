@@ -20,6 +20,6 @@
         /// <summary>
         /// The date and time the event occured.
         /// </summary>
-        public DateTime EventOccurrence {get; set;}
+        public DateTime EventOccurrence {get; set;} = DateTime.UtcNow;
     }
 }

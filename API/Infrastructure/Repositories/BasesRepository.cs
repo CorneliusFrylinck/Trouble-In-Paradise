@@ -12,11 +12,14 @@ namespace API.Infrastructure.Repositories
     /// </summary>
     public class BasesRepository: IBasesRepository
     {
+        private readonly IEventsRepository eventsRepository;
+
         private BetaContext _betaContext { get; }
 
-        public BasesRepository(BetaContext betaContext)
+        public BasesRepository(BetaContext betaContext, IEventsRepository eventsRepository)
         {
             _betaContext = betaContext;
+            this.eventsRepository = eventsRepository;
         }
 
         /// <summary>
@@ -27,6 +30,8 @@ namespace API.Infrastructure.Repositories
         /// <returns>Base</returns>
         public async Task<Base?> GetBaseByIdAsync(int id)
         {
+            // When retrieving base data, the resource stores should first be updated to ensure that the latest data is shown to the player.
+            await eventsRepository.UpdateResourceStoreEventAsync(id);
             return await _betaContext.Bases.Where(b => b.Id == id).FirstOrDefaultAsync();
         }
     }
