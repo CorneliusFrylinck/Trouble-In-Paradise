@@ -105,7 +105,7 @@ namespace API.Domain
         /// </summary>
         public int Level { get; set; } = 0;
         [Required]
-        public int ProductionSpeed { get; set; }
+        public double ProductionSpeed { get; set; }
 
         /// <summary>
         /// Enum used to keep track of the resource type within the API to avoid errors caused by hard-coding.

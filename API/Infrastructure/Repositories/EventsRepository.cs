@@ -1,6 +1,7 @@
 ﻿using API.Data;
 using API.Domain;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 
 namespace API.Infrastructure.Repositories
 {
@@ -39,14 +40,13 @@ namespace API.Infrastructure.Repositories
                 return true;
             }
 
-            var resourceStore = currentBase.Resources;
-
             // Retrieve last resource update event to calculate the amount of seconds since the resource production has been updated.
+            // Related id refers to the Resource Id in this case.
             var lastResourceUpdateEvent = 
-                betaContext.Events.Where(e => e.Id == resourceStore.Id && e.EventType == EventTypeEnum.ResourceUpdate)
-                .OrderByDescending(o => o.EventOccurrence).FirstOrDefault();
+                await betaContext.Events.Where(e => e.RelatedId == currentBase.Resources.Id && e.EventType == EventTypeEnum.ResourceUpdate)
+                .OrderByDescending(o => o.Id).FirstOrDefaultAsync();
 
-            int seconds = -1;
+            double seconds = -1;
             if (lastResourceUpdateEvent != null)
             {
                 // If the event exists, use the event time to determine the production seconds to calculate.
@@ -64,18 +64,18 @@ namespace API.Infrastructure.Repositories
             await CreateEvent(currentBase.Resources.Id, EventTypeEnum.ResourceUpdate);
 
             // Helper function to get the updated resource values.
-            resourceStore = await GetUpdatedResourceStore(resourceStore, seconds);
+            currentBase.Resources = await GetUpdatedResourceStore(currentBase.Resources, seconds);
             await betaContext.SaveChangesAsync();
 
             return true;
         }
 
-        private int GetSecondDiff(DateTime oldTime)
+        private double GetSecondDiff(DateTime oldTime)
         {
             var currentTime = DateTime.UtcNow;
             TimeSpan timeSpan = currentTime - oldTime;
 
-            return timeSpan.Seconds;
+            return timeSpan.TotalSeconds;
         }
 
         private async Task CreateEvent(int relatedId, EventTypeEnum eventType)
@@ -89,7 +89,7 @@ namespace API.Infrastructure.Repositories
             await betaContext.SaveChangesAsync();
         }
 
-        private async Task<ResourceStore> GetUpdatedResourceStore(ResourceStore resourceStore, int secondsToUpdate)
+        private async Task<ResourceStore> GetUpdatedResourceStore(ResourceStore resourceStore, double secondsToUpdate)
         {
             // Get production speeds for all resources. This is done by filtering the resource buildings by the base id and 
             //      resource type to get all relevant buildings, then summing their productions.
@@ -123,17 +123,20 @@ namespace API.Infrastructure.Repositories
 
             // Calculate how much of each resource has been produced since the last event time.
             // Production speed is in hours, divide by 60 => minute, divide by 60 => seconds. Then multiply by seconds to update.
-            resourceStore.Food += ((foodProduction / 60 / 60) * secondsToUpdate);
-            resourceStore.Water += ((waterProduction / 60 / 60) * secondsToUpdate);
-            resourceStore.Metal += ((metalProduction / 60 / 60) * secondsToUpdate);
-            resourceStore.Lumber += ((lumberProduction / 60 / 60) * secondsToUpdate);
-            resourceStore.Cement += ((cementProduction / 60 / 60) * secondsToUpdate);
-            resourceStore.Oxygen += ((oxygenProduction / 60 / 60) * secondsToUpdate);
-            resourceStore.Crystal_Blue += ((blueCrystalProduction / 60 / 60) * secondsToUpdate);
-            resourceStore.Crystal_Red += ((redCrystalProduction / 60 / 60) * secondsToUpdate);
-            resourceStore.Gold += ((goldProduction / 60 / 60) * secondsToUpdate);
+            var newResource = new ResourceStore(resourceStore.BaseId, resourceStore.Id)
+            {
+                Food = resourceStore.Food + ((foodProduction / 60 / 60) * secondsToUpdate),
+                Water = resourceStore.Water + ((waterProduction / 60 / 60) * secondsToUpdate),
+                Metal = resourceStore.Metal + ((metalProduction / 60 / 60) * secondsToUpdate),
+                Lumber = resourceStore.Lumber + ((lumberProduction / 60 / 60) * secondsToUpdate),
+                Cement = resourceStore.Cement + ((cementProduction / 60 / 60) * secondsToUpdate),
+                Oxygen = resourceStore.Oxygen + ((oxygenProduction / 60 / 60) * secondsToUpdate),
+                Crystal_Blue = resourceStore.Crystal_Blue + ((blueCrystalProduction / 60 / 60) * secondsToUpdate),
+                Crystal_Red = resourceStore.Crystal_Red + ((redCrystalProduction / 60 / 60) * secondsToUpdate),
+                Gold = resourceStore.Gold + ((goldProduction / 60 / 60) * secondsToUpdate),
+            };
 
-            return resourceStore;
+            return newResource;
         }
     }
 }
