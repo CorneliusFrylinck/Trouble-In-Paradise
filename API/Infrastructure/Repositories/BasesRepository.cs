@@ -34,5 +34,22 @@ namespace API.Infrastructure.Repositories
             await eventsRepository.UpdateResourceStoreEventAsync(id);
             return await _betaContext.Bases.Where(b => b.Id == id).FirstOrDefaultAsync();
         }
+
+        /// <summary>
+        /// Function to get a base's resource store by base id.
+        /// </summary>
+        /// <param name="baseId"></param>
+        /// <returns>Resource Store</returns>
+        public async Task<ResourceStore?> GetBaseResourceStoreByBaseIdAsync(int baseId)
+        {
+            // When retrieving base data, the resource stores should first be updated to ensure that the latest data is shown to the player.
+            await eventsRepository.UpdateResourceStoreEventAsync(baseId);
+
+            var currentBase = await _betaContext.Bases.Where(b => b.Id == baseId).FirstOrDefaultAsync();
+
+            if (currentBase == null) return null;
+
+            return currentBase.Resources;
+        }
     }
 }

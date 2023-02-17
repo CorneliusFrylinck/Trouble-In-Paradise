@@ -11,5 +11,12 @@ namespace API.Infrastructure.Repositories
         /// <param name="id"></param>
         /// <returns>Base</returns>
         Task<Base?> GetBaseByIdAsync(int id);
+
+        /// <summary>
+        /// Function to get a base's resource store by base id.
+        /// </summary>
+        /// <param name="baseId"></param>
+        /// <returns>Resource Store</returns>
+        Task<ResourceStore?> GetBaseResourceStoreByBaseIdAsync(int baseId);
     }
 }

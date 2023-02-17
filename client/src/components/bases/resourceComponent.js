@@ -7,7 +7,7 @@ const ResourceComponent = ({
 }) => {
     return (
         <>
-            <Link to={"resource/"+name} style={{color: color}} className="resource-component">{name.replace('_', ' ')}: {available} ({production}/h)</Link>
+            <Link to={"resource/"+name} style={{color: color}} className="resource-component">{name.replace('_', ' ')}: {Math.floor(available)} ({production}/h)</Link>
         </>
     )
 }

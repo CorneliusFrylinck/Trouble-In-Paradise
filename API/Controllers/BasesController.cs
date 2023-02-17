@@ -34,5 +34,20 @@ namespace API.Controllers
 
             return Ok(response);
         }
+
+        /// <summary>
+        /// Function to get a base's details by base id.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [HttpGet("resources/{baseId}")]
+        public async Task<ActionResult<ResourceStore>> GetBaseResourcesAsync(int baseId)
+        {
+            var response = await basesRepository.GetBaseResourceStoreByBaseIdAsync(baseId);
+
+            if (response == null) return NotFound();
+
+            return Ok(response);
+        }
     }
 }

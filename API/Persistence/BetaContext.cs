@@ -34,15 +34,24 @@ namespace API.Data
             );
             modelBuilder.Entity<ResourceStore>().HasData(new ResourceStore(1, 1));
             modelBuilder.Entity<ResourceItem>().HasData(
-                new ResourceItem("Cement", "Resource used for building and upgrading buildings.", 0, 100, 1, 1),
-                new ResourceItem("Metal", "Resource used for building and upgrading buildings, and units..", 0, 100, 1, 2),
-                new ResourceItem("Lumber", "Resource used for building and upgrading buildings.", 0, 100, 1, 3),
-                new ResourceItem("Water", "Resource used for building and upgrading buildings, and creating and upgrading units, as well as keeping units alive and buildings functional.", 0, 100, 1, 4),
-                new ResourceItem("Food", "Resource used to keep units and workers alive.", 0, 100, 1, 5),
-                new ResourceItem("Oxygen", "Resource used for building and upgrading buildings.", 0, 100, 1, 6),
-                new ResourceItem("Crystal_Blue", "Resource used for building and upgrading buildings, and creating and upgrading units, as well as keeping units alive and buildings functional.", 0, 100, 1, 7),
-                new ResourceItem("Crystal_Red", "Resource used for building and upgrading buildings, and creating and upgrading units, as well as keeping units alive and buildings functional.", 0, 100, 1, 8),
-                new ResourceItem("Gold", "Resource rarely found in mines. Used to queue building and unit upgrades", 0, 5, 1, 9)
+                new ResourceItem("Cement", "Resource used for building and upgrading buildings.", 0, 1000, 1, 1),
+                new ResourceItem("Metal", "Resource used for building and upgrading buildings, and units..", 0, 1000, 1, 2),
+                new ResourceItem("Lumber", "Resource used for building and upgrading buildings.", 0, 1000, 1, 3),
+                new ResourceItem("Water", "Resource used for building and upgrading buildings, and creating and upgrading units, as well as keeping units alive and buildings functional.", 0, 1000, 1, 4),
+                new ResourceItem("Food", "Resource used to keep units and workers alive.", 0, 1000, 1, 5),
+                new ResourceItem("Oxygen", "Resource used for building and upgrading buildings.", 0, 1000, 1, 6),
+                new ResourceItem("Crystal_Blue", "Resource used for building and upgrading buildings, and creating and upgrading units, as well as keeping units alive and buildings functional.", 0, 1000, 1, 7),
+                new ResourceItem("Crystal_Red", "Resource used for building and upgrading buildings, and creating and upgrading units, as well as keeping units alive and buildings functional.", 0, 1000, 1, 8),
+                new ResourceItem("Gold", "Resource rarely found in mines. Used to queue building and unit upgrades", 0, 50, 1, 9),
+                new ResourceItem("Cement", "Resource used for building and upgrading buildings.", 0, 1000, 1, 10),
+                new ResourceItem("Metal", "Resource used for building and upgrading buildings, and units..", 0, 1000, 1, 11),
+                new ResourceItem("Lumber", "Resource used for building and upgrading buildings.", 0, 1000, 1, 12),
+                new ResourceItem("Water", "Resource used for building and upgrading buildings, and creating and upgrading units, as well as keeping units alive and buildings functional.", 0, 1000, 1, 13),
+                new ResourceItem("Food", "Resource used to keep units and workers alive.", 0, 1000, 1, 14),
+                new ResourceItem("Oxygen", "Resource used for building and upgrading buildings.", 0, 1000, 1, 15),
+                new ResourceItem("Crystal_Blue", "Resource used for building and upgrading buildings, and creating and upgrading units, as well as keeping units alive and buildings functional.", 0, 1000, 1, 16),
+                new ResourceItem("Crystal_Red", "Resource used for building and upgrading buildings, and creating and upgrading units, as well as keeping units alive and buildings functional.", 0, 1000, 1, 17),
+                new ResourceItem("Gold", "Resource rarely found in mines. Used to queue building and unit upgrades", 0, 50, 1, 18)
             );
             modelBuilder.Entity<Building>().HasData(
                 new Building("Command Centre", "This is your center of communication. Upgrading this building can also unlock new options on other buildings.", 1)
