@@ -10,7 +10,7 @@ const BasePage = ({base}) => {
         <div className="base-page">
             <div>BasePage</div>
             <div className="list-container">
-                <ResourceList resources={base.resources} />
+                <ResourceList resources={base.id} />
             </div>
             <div className="list-container">
                 <BuildingList buildings={base.buildings} />

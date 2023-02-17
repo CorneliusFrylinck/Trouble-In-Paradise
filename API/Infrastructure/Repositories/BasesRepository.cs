@@ -1,6 +1,8 @@
 ﻿using API.Data;
 using API.Domain;
+using API.DTOs;
 using Microsoft.EntityFrameworkCore;
+using System.Runtime.Versioning;
 
 namespace API.Infrastructure.Repositories
 {
@@ -14,11 +16,11 @@ namespace API.Infrastructure.Repositories
     {
         private readonly IEventsRepository eventsRepository;
 
-        private BetaContext _betaContext { get; }
+        private BetaContext betaContext { get; }
 
         public BasesRepository(BetaContext betaContext, IEventsRepository eventsRepository)
         {
-            _betaContext = betaContext;
+            this.betaContext = betaContext;
             this.eventsRepository = eventsRepository;
         }
 
@@ -32,7 +34,7 @@ namespace API.Infrastructure.Repositories
         {
             // When retrieving base data, the resource stores should first be updated to ensure that the latest data is shown to the player.
             await eventsRepository.UpdateResourceStoreEventAsync(id);
-            return await _betaContext.Bases.Where(b => b.Id == id).FirstOrDefaultAsync();
+            return await betaContext.Bases.Where(b => b.Id == id).FirstOrDefaultAsync();
         }
 
         /// <summary>
@@ -45,11 +47,66 @@ namespace API.Infrastructure.Repositories
             // When retrieving base data, the resource stores should first be updated to ensure that the latest data is shown to the player.
             await eventsRepository.UpdateResourceStoreEventAsync(baseId);
 
-            var currentBase = await _betaContext.Bases.Where(b => b.Id == baseId).FirstOrDefaultAsync();
+            var currentBase = await betaContext.Bases.Where(b => b.Id == baseId).FirstOrDefaultAsync();
 
             if (currentBase == null) return null;
 
             return currentBase.Resources;
+        }
+
+        /// <summary>
+        /// Function to get a base's resource production rates by base id.
+        /// </summary>
+        /// <param name="baseId"></param>
+        /// <returns>Hourly Resource Production Rate</returns>
+        public async Task<ResourceProductionRequestDto?> GetBaseResourceProductionRatesByBaseIdAsync(int baseId)
+        {
+            var currentBase = await betaContext.Bases.Where(b => b.Id == baseId).FirstOrDefaultAsync();
+
+            if (currentBase == null) return null;
+
+            // Get production speeds for all resources. This is done by filtering the resource buildings by the base id and 
+            //      resource type to get all relevant buildings, then summing their productions.
+            var waterProduction =
+                await betaContext.ResourceItems.Where(r => r.BaseId == currentBase.Id && r.Type == ResourceEnum.Water)
+                .SumAsync(s => s.ProductionSpeed);
+            var foodProduction =
+                await betaContext.ResourceItems.Where(r => r.BaseId == currentBase.Id && r.Type == ResourceEnum.Food)
+                .SumAsync(s => s.ProductionSpeed);
+            var lumberProduction =
+                await betaContext.ResourceItems.Where(r => r.BaseId == currentBase.Id && r.Type == ResourceEnum.Lumber)
+                .SumAsync(s => s.ProductionSpeed);
+            var cementProduction =
+                await betaContext.ResourceItems.Where(r => r.BaseId == currentBase.Id && r.Type == ResourceEnum.Cement)
+                .SumAsync(s => s.ProductionSpeed);
+            var oxygenProduction =
+                await betaContext.ResourceItems.Where(r => r.BaseId == currentBase.Id && r.Type == ResourceEnum.Oxygen)
+                .SumAsync(s => s.ProductionSpeed);
+            var metalProduction =
+                await betaContext.ResourceItems.Where(r => r.BaseId == currentBase.Id && r.Type == ResourceEnum.Metal)
+                .SumAsync(s => s.ProductionSpeed);
+            var goldProduction =
+                await betaContext.ResourceItems.Where(r => r.BaseId == currentBase.Id && r.Type == ResourceEnum.Gold)
+                .SumAsync(s => s.ProductionSpeed);
+            var blueCrystalProduction =
+                await betaContext.ResourceItems.Where(r => r.BaseId == currentBase.Id && r.Type == ResourceEnum.Crystal_Blue)
+                .SumAsync(s => s.ProductionSpeed);
+            var redCrystalProduction =
+                await betaContext.ResourceItems.Where(r => r.BaseId == currentBase.Id && r.Type == ResourceEnum.Crystal_Red)
+                .SumAsync(s => s.ProductionSpeed);
+
+            return new ResourceProductionRequestDto()
+            {
+                Water = waterProduction,
+                Cement = cementProduction,
+                Crystal_Blue = blueCrystalProduction,
+                Crystal_Red = redCrystalProduction,
+                Metal = metalProduction,
+                Food = foodProduction,
+                Gold = goldProduction,
+                Lumber = lumberProduction,
+                Oxygen = oxygenProduction
+            };
         }
     }
 }

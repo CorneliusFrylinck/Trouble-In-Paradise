@@ -17,11 +17,11 @@ export default class BasesStore {
         return await agent.BaseRequests.getResourcesByBaseId(1);
     }
 
-    getBase = () => {
-        return this.base;
+    retrieveResourceProductions = async () => {
+        return await agent.BaseRequests.getResourceProductionsByBaseId(1);
     }
 
-    getResources = () => {
-        return this.resources;
+    getBase = () => {
+        return this.base;
     }
 }

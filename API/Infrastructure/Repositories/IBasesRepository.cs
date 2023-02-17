@@ -1,4 +1,5 @@
 ﻿using API.Domain;
+using API.DTOs;
 
 namespace API.Infrastructure.Repositories
 {
@@ -18,5 +19,12 @@ namespace API.Infrastructure.Repositories
         /// <param name="baseId"></param>
         /// <returns>Resource Store</returns>
         Task<ResourceStore?> GetBaseResourceStoreByBaseIdAsync(int baseId);
+
+        /// <summary>
+        /// Function to get a base's resource production rates by base id.
+        /// </summary>
+        /// <param name="baseId"></param>
+        /// <returns>Hourly Resource Production Rate</returns>
+        Task<ResourceProductionRequestDto?> GetBaseResourceProductionRatesByBaseIdAsync(int baseId);
     }
 }
