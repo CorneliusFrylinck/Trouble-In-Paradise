@@ -16,23 +16,18 @@ const ResourceList = ({
     useEffect(() => {
         try {
             GetResourceProductions();
-        } catch (ex) {
-            console.log(ex)
-        }
             // On startup, create a timer to get the updated resources every second.
-            setInterval(() => {
-                try {
-                    GetResources();
-                } catch (ex) {
-                    console.log(ex)
-                }
-            }, 3000);
+            GetResources();
+        } catch(e) {}
     }, [])
 
     const GetResources = () => {
-        basesStore.retrieveResources().then(r => {
-            setResources(r);
-        })
+        setTimeout(() => {
+            basesStore.retrieveResources().then(r => {
+                setResources(r);
+                GetResources();
+            })
+        }, 1000)
     }
 
     const GetResourceProductions = () => {
@@ -55,8 +50,8 @@ const ResourceList = ({
                 <ResourceComponent color="#61699a" name={"Water"} available={resources.water} production={resourceProductions.water} />
                 <ResourceComponent color="#187661" name={"Food"} available={resources.food} production={resourceProductions.food} />
                 <ResourceComponent color="#aeb8e4" name={"Oxygen"} available={resources.oxygen} production={resourceProductions.oxygen} />
-                <ResourceComponent color="#00c1ff" name={"Crystal_Blue"} available={resources.crystal_Blue} production={resourceProductions.crystal_Blue} />
-                <ResourceComponent color="#ff0000" name={"Crystal_Red"} available={resources.crystal_Red} production={resourceProductions.crystal_Red} />
+                <ResourceComponent color="#00c1ff" name={"Blue_Crystal"} available={resources.blue_Crystal} production={resourceProductions.blue_Crystal} />
+                <ResourceComponent color="#ff0000" name={"Red_Crystal"} available={resources.red_Crystal} production={resourceProductions.red_Crystal} />
                 <ResourceComponent color="#a3a034" name={"Gold"} available={resources.gold} production={resourceProductions.gold} />
             </div>
         </>

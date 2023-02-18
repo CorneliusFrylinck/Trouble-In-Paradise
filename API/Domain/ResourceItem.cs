@@ -8,81 +8,34 @@ namespace API.Domain
         public ResourceItem(string name)
         {
             Name = name;
-            switch (Name)
-            {
-                case "Cement":          Type = ResourceEnum.Cement; break;
-                case "Crystal_Blue":    Type = ResourceEnum.Crystal_Blue; break;
-                case "Crystal_Red":     Type = ResourceEnum.Crystal_Red; break;
-                case "Metal":           Type = ResourceEnum.Metal; break;
-                case "Water":           Type = ResourceEnum.Water; break;
-                case "Food":            Type = ResourceEnum.Food; break;
-                case "Oxygen":          Type = ResourceEnum.Oxygen; break;
-                case "Gold":            Type = ResourceEnum.Gold; break;
-                case "Lumber":          Type = ResourceEnum.Lumber; break;
-            }
+            Type = GetType(name);
         }
 
-        public ResourceItem(string name, string description, int level, int productionSpeed)
+        public ResourceItem(string name, int level, int productionSpeed)
         {
             Name = name;
-            switch (Name)
-            {
-                case "Cement": Type = ResourceEnum.Cement; break;
-                case "Crystal_Blue": Type = ResourceEnum.Crystal_Blue; break;
-                case "Crystal_Red": Type = ResourceEnum.Crystal_Red; break;
-                case "Metal": Type = ResourceEnum.Metal; break;
-                case "Water": Type = ResourceEnum.Water; break;
-                case "Food": Type = ResourceEnum.Food; break;
-                case "Oxygen": Type = ResourceEnum.Oxygen; break;
-                case "Gold": Type = ResourceEnum.Gold; break;
-                case "Lumber": Type = ResourceEnum.Lumber; break;
-            }
+            Type = GetType(name);
             ProductionSpeed = productionSpeed;
             Level = level;
-            Description = description;
         }
 
-        public ResourceItem(string name, string description, int level, int productionSpeed, int baseId)
+        public ResourceItem(string name, int level, int productionSpeed, int baseId)
         {
             Name = name;
-            switch (Name)
-            {
-                case "Cement": Type = ResourceEnum.Cement; break;
-                case "Crystal_Blue": Type = ResourceEnum.Crystal_Blue; break;
-                case "Crystal_Red": Type = ResourceEnum.Crystal_Red; break;
-                case "Metal": Type = ResourceEnum.Metal; break;
-                case "Water": Type = ResourceEnum.Water; break;
-                case "Food": Type = ResourceEnum.Food; break;
-                case "Oxygen": Type = ResourceEnum.Oxygen; break;
-                case "Gold": Type = ResourceEnum.Gold; break;
-                case "Lumber": Type = ResourceEnum.Lumber; break;
-            }
+            Type = GetType(name);
             ProductionSpeed = productionSpeed;
             BaseId = baseId;
             Level = level;
-            Description = description;
         }
 
-        public ResourceItem(string name, string description, int level, int productionSpeed, int baseId, int id)
+        public ResourceItem(string name, int level, int productionSpeed, int baseId, int id)
         {
             Name = name;
-            switch (Name)
-            {
-                case "Cement": Type = ResourceEnum.Cement; break;
-                case "Crystal_Blue": Type = ResourceEnum.Crystal_Blue; break;
-                case "Crystal_Red": Type = ResourceEnum.Crystal_Red; break;
-                case "Metal": Type = ResourceEnum.Metal; break;
-                case "Water": Type = ResourceEnum.Water; break;
-                case "Food": Type = ResourceEnum.Food; break;
-                case "Oxygen": Type = ResourceEnum.Oxygen; break;
-                case "Gold": Type = ResourceEnum.Gold; break;
-                case "Lumber": Type = ResourceEnum.Lumber; break;
-            }
+            Type = GetType(name);
             ProductionSpeed = productionSpeed;
             BaseId = baseId;
             Id = id;
             Level = level;
-            Description = description;
         }
 
         [Key]
@@ -94,11 +47,6 @@ namespace API.Domain
         /// </summary>
         [Required]
         public string Name { get; set; }
-
-        /// <summary>
-        /// Resource building descriptions are set by the server.
-        /// </summary>
-        public string? Description { get; set; } = null!;
 
         /// <summary>
         /// Players should upgrade player buildings to increase their production speeds.
@@ -117,5 +65,23 @@ namespace API.Domain
         /// Multiple resource buildings are linked to one base.
         /// </summary>
         public int BaseId { get; set; }
+
+        private ResourceEnum GetType(string name)
+        {
+            switch (Name)
+            {
+                case "Cement": return ResourceEnum.Cement; 
+                case "Blue_Crystal": return ResourceEnum.Blue_Crystal;
+                case "Red_Crystal": return ResourceEnum.Red_Crystal;
+                case "Metal": return ResourceEnum.Metal;
+                case "Water": return ResourceEnum.Water;
+                case "Food": return ResourceEnum.Food;
+                case "Oxygen": return ResourceEnum.Oxygen;
+                case "Gold": return ResourceEnum.Gold;
+                case "Lumber": return ResourceEnum.Lumber;
+            }
+
+            return ResourceEnum.Cement;
+        }
     }
 }

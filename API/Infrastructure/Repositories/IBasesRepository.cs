@@ -25,6 +25,6 @@ namespace API.Infrastructure.Repositories
         /// </summary>
         /// <param name="baseId"></param>
         /// <returns>Hourly Resource Production Rate</returns>
-        Task<ResourceProductionRequestDto?> GetBaseResourceProductionRatesByBaseIdAsync(int baseId);
+        Task<ResourceProductionResponseDto?> GetBaseResourceProductionRatesByBaseIdAsync(int baseId);
     }
 }

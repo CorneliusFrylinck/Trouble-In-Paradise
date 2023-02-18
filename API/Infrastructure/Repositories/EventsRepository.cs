@@ -115,10 +115,10 @@ namespace API.Infrastructure.Repositories
                 await betaContext.ResourceItems.Where(r => r.BaseId == resourceStore.BaseId && r.Type == ResourceEnum.Gold)
                 .SumAsync(s => s.ProductionSpeed);
             var blueCrystalProduction =
-                await betaContext.ResourceItems.Where(r => r.BaseId == resourceStore.BaseId && r.Type == ResourceEnum.Crystal_Blue)
+                await betaContext.ResourceItems.Where(r => r.BaseId == resourceStore.BaseId && r.Type == ResourceEnum.Blue_Crystal)
                 .SumAsync(s => s.ProductionSpeed);
             var redCrystalProduction =
-                await betaContext.ResourceItems.Where(r => r.BaseId == resourceStore.BaseId && r.Type == ResourceEnum.Crystal_Red)
+                await betaContext.ResourceItems.Where(r => r.BaseId == resourceStore.BaseId && r.Type == ResourceEnum.Red_Crystal)
                 .SumAsync(s => s.ProductionSpeed);
 
             // Calculate how much of each resource has been produced since the last event time.
@@ -131,8 +131,8 @@ namespace API.Infrastructure.Repositories
                 Lumber = resourceStore.Lumber + ((lumberProduction / 60 / 60) * secondsToUpdate),
                 Cement = resourceStore.Cement + ((cementProduction / 60 / 60) * secondsToUpdate),
                 Oxygen = resourceStore.Oxygen + ((oxygenProduction / 60 / 60) * secondsToUpdate),
-                Crystal_Blue = resourceStore.Crystal_Blue + ((blueCrystalProduction / 60 / 60) * secondsToUpdate),
-                Crystal_Red = resourceStore.Crystal_Red + ((redCrystalProduction / 60 / 60) * secondsToUpdate),
+                Blue_Crystal = resourceStore.Blue_Crystal + ((blueCrystalProduction / 60 / 60) * secondsToUpdate),
+                Red_Crystal = resourceStore.Red_Crystal + ((redCrystalProduction / 60 / 60) * secondsToUpdate),
                 Gold = resourceStore.Gold + ((goldProduction / 60 / 60) * secondsToUpdate),
             };
 

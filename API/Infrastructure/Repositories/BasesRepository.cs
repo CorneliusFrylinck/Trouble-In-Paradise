@@ -59,7 +59,7 @@ namespace API.Infrastructure.Repositories
         /// </summary>
         /// <param name="baseId"></param>
         /// <returns>Hourly Resource Production Rate</returns>
-        public async Task<ResourceProductionRequestDto?> GetBaseResourceProductionRatesByBaseIdAsync(int baseId)
+        public async Task<ResourceProductionResponseDto?> GetBaseResourceProductionRatesByBaseIdAsync(int baseId)
         {
             var currentBase = await betaContext.Bases.Where(b => b.Id == baseId).FirstOrDefaultAsync();
 
@@ -89,18 +89,18 @@ namespace API.Infrastructure.Repositories
                 await betaContext.ResourceItems.Where(r => r.BaseId == currentBase.Id && r.Type == ResourceEnum.Gold)
                 .SumAsync(s => s.ProductionSpeed);
             var blueCrystalProduction =
-                await betaContext.ResourceItems.Where(r => r.BaseId == currentBase.Id && r.Type == ResourceEnum.Crystal_Blue)
+                await betaContext.ResourceItems.Where(r => r.BaseId == currentBase.Id && r.Type == ResourceEnum.Blue_Crystal)
                 .SumAsync(s => s.ProductionSpeed);
             var redCrystalProduction =
-                await betaContext.ResourceItems.Where(r => r.BaseId == currentBase.Id && r.Type == ResourceEnum.Crystal_Red)
+                await betaContext.ResourceItems.Where(r => r.BaseId == currentBase.Id && r.Type == ResourceEnum.Red_Crystal)
                 .SumAsync(s => s.ProductionSpeed);
 
-            return new ResourceProductionRequestDto()
+            return new ResourceProductionResponseDto()
             {
                 Water = waterProduction,
                 Cement = cementProduction,
-                Crystal_Blue = blueCrystalProduction,
-                Crystal_Red = redCrystalProduction,
+                Blue_Crystal = blueCrystalProduction,
+                Red_Crystal = redCrystalProduction,
                 Metal = metalProduction,
                 Food = foodProduction,
                 Gold = goldProduction,

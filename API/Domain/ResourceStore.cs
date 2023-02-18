@@ -16,8 +16,8 @@ namespace API.Domain
             Water = 3000;
             Food = 3000;
             Oxygen = 3000;
-            Crystal_Blue = 3000;
-            Crystal_Red = 3000;
+            Blue_Crystal = 3000;
+            Red_Crystal = 3000;
             Gold = 1000;
         }
         public ResourceStore(int baseId)
@@ -28,8 +28,8 @@ namespace API.Domain
             Water = 3000;
             Food = 3000;
             Oxygen = 3000;
-            Crystal_Blue = 3000;
-            Crystal_Red = 3000;
+            Blue_Crystal = 3000;
+            Red_Crystal = 3000;
             Gold = 1000;
             BaseId = baseId;
         }
@@ -41,8 +41,8 @@ namespace API.Domain
             Water = 3000;
             Food = 3000;
             Oxygen = 3000;
-            Crystal_Blue = 3000;
-            Crystal_Red = 3000;
+            Blue_Crystal = 3000;
+            Red_Crystal = 3000;
             Gold = 1000;
             BaseId = baseId;
             Id = id;
@@ -57,8 +57,8 @@ namespace API.Domain
         public double Water { get; set; }
         public double Food { get; set; }
         public double Oxygen { get; set; }
-        public double Crystal_Blue { get; set; }
-        public double Crystal_Red { get; set; }
+        public double Blue_Crystal { get; set; }
+        public double Red_Crystal { get; set; }
         public double Gold { get; set; }
         public int BaseId { get; set; }
     }

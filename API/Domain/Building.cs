@@ -5,10 +5,9 @@ namespace API.Domain
 {
     public class Building
     {
-        public Building(string name, string description, int level)
+        public Building(string name, int level)
         {
             Name = name;
-            Description = description;
             Level = level;
         }
 
@@ -21,12 +20,6 @@ namespace API.Domain
         /// </summary>
         [Required]
         public string Name { get; set; }
-
-        /// <summary>
-        /// Building descriptions are set by the server.
-        /// </summary>
-
-        public string Description { get; set; }
 
         /// <summary>
         /// Users must level up buildings to unlock new funcitonality.

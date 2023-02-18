@@ -51,7 +51,7 @@ namespace API.Migrations
                             Id = 1,
                             BaseX = 200,
                             BaseY = 200,
-                            Created = new DateTime(2023, 2, 17, 18, 42, 56, 431, DateTimeKind.Utc).AddTicks(632),
+                            Created = new DateTime(2023, 2, 18, 10, 1, 51, 669, DateTimeKind.Utc).AddTicks(1121),
                             Description = "Just a test bois",
                             Name = "Base 1"
                         });
@@ -65,10 +65,6 @@ namespace API.Migrations
 
                     b.Property<int>("BaseId")
                         .HasColumnType("INTEGER");
-
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
 
                     b.Property<int>("Level")
                         .HasColumnType("INTEGER");
@@ -88,7 +84,6 @@ namespace API.Migrations
                         {
                             Id = 1,
                             BaseId = 1,
-                            Description = "This is your center of communication. Upgrading this building can also unlock new options on other buildings.",
                             Level = 1,
                             Name = "Command Centre"
                         },
@@ -96,7 +91,6 @@ namespace API.Migrations
                         {
                             Id = 2,
                             BaseId = 1,
-                            Description = "This is where you can create a guild, join a guild, communicate with your guild and access guild-related actions.",
                             Level = 1,
                             Name = "Guild Hub"
                         },
@@ -104,7 +98,6 @@ namespace API.Migrations
                         {
                             Id = 3,
                             BaseId = 1,
-                            Description = "This is where you build your army. Build units and assign them to squads.",
                             Level = 1,
                             Name = "Barracks"
                         },
@@ -112,7 +105,6 @@ namespace API.Migrations
                         {
                             Id = 4,
                             BaseId = 1,
-                            Description = "This is where you manage your army. Send your squads out to attack, move them strategically or assign them to train and get stronger.",
                             Level = 1,
                             Name = "Warroom"
                         },
@@ -120,7 +112,6 @@ namespace API.Migrations
                         {
                             Id = 5,
                             BaseId = 1,
-                            Description = "This building is used to view the area around you.",
                             Level = 1,
                             Name = "Navigational Unit"
                         },
@@ -128,7 +119,6 @@ namespace API.Migrations
                         {
                             Id = 6,
                             BaseId = 1,
-                            Description = "This building picks up enemy attacks and any troop movement to your base.",
                             Level = 1,
                             Name = "Radar"
                         },
@@ -136,7 +126,6 @@ namespace API.Migrations
                         {
                             Id = 7,
                             BaseId = 1,
-                            Description = "This building is used to heal your troops after they get hurt.",
                             Level = 1,
                             Name = "Medical Facility"
                         },
@@ -144,7 +133,6 @@ namespace API.Migrations
                         {
                             Id = 8,
                             BaseId = 1,
-                            Description = "This building is used to unlock new units and abilities.",
                             Level = 1,
                             Name = "Research Facility"
                         },
@@ -152,7 +140,6 @@ namespace API.Migrations
                         {
                             Id = 9,
                             BaseId = 1,
-                            Description = "This building is used to send resources to other players.",
                             Level = 1,
                             Name = "Tradepost"
                         },
@@ -160,7 +147,6 @@ namespace API.Migrations
                         {
                             Id = 10,
                             BaseId = 1,
-                            Description = "This building is used to trade resources with locals of the new planet.",
                             Level = 1,
                             Name = "Market"
                         },
@@ -168,7 +154,6 @@ namespace API.Migrations
                         {
                             Id = 11,
                             BaseId = 1,
-                            Description = "Upgrade these buildings to increase your resource storage capabilities.",
                             Level = 1,
                             Name = "Silos"
                         },
@@ -176,7 +161,6 @@ namespace API.Migrations
                         {
                             Id = 12,
                             BaseId = 1,
-                            Description = "These buildings are used to protect your resources from raiders.",
                             Level = 1,
                             Name = "Vaults"
                         },
@@ -184,7 +168,6 @@ namespace API.Migrations
                         {
                             Id = 13,
                             BaseId = 1,
-                            Description = "These buildings offer protection to your ranged units when defending.",
                             Level = 1,
                             Name = "Bunkers"
                         },
@@ -192,9 +175,193 @@ namespace API.Migrations
                         {
                             Id = 14,
                             BaseId = 1,
-                            Description = "Your shield offers all units and buildings protection when you are being attacked.",
                             Level = 1,
                             Name = "Shield"
+                        });
+                });
+
+            modelBuilder.Entity("API.Domain.Description", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("Type")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Value")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Descriptions");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Name = "cement",
+                            Type = 0,
+                            Value = "Resource used for building and upgrading buildings."
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Name = "metal",
+                            Type = 0,
+                            Value = "Resource used for building and upgrading buildings, and units.."
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Name = "lumber",
+                            Type = 0,
+                            Value = "Resource used for building and upgrading buildings."
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Name = "water",
+                            Type = 0,
+                            Value = "Resource used for building and upgrading buildings, and creating and upgrading units, as well as keeping units alive and buildings functional."
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Name = "food",
+                            Type = 0,
+                            Value = "Resource used to keep units and workers alive."
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Name = "oxygen",
+                            Type = 0,
+                            Value = "Resource used for building and upgrading buildings."
+                        },
+                        new
+                        {
+                            Id = 7,
+                            Name = "blue_crystal",
+                            Type = 0,
+                            Value = "Resource used for building and upgrading buildings, and creating and upgrading units, as well as keeping units alive and buildings functional."
+                        },
+                        new
+                        {
+                            Id = 8,
+                            Name = "red_crystal",
+                            Type = 0,
+                            Value = "Resource used for building and upgrading buildings, and creating and upgrading units, as well as keeping units alive and buildings functional."
+                        },
+                        new
+                        {
+                            Id = 9,
+                            Name = "gold",
+                            Type = 0,
+                            Value = "Resource rarely found in mines. Used to queue building and unit upgrades"
+                        },
+                        new
+                        {
+                            Id = 10,
+                            Name = "command centre",
+                            Type = 1,
+                            Value = "This is your center of communication. Upgrading this building can also unlock new options on other buildings."
+                        },
+                        new
+                        {
+                            Id = 11,
+                            Name = "guild hub",
+                            Type = 1,
+                            Value = "This is where you can create a guild, join a guild, communicate with your guild and access guild-related actions."
+                        },
+                        new
+                        {
+                            Id = 12,
+                            Name = "barracks",
+                            Type = 1,
+                            Value = "This is where you build your army. Build units and assign them to squads."
+                        },
+                        new
+                        {
+                            Id = 13,
+                            Name = "warroom",
+                            Type = 1,
+                            Value = "This is where you manage your army. Send your squads out to attack, move them strategically or assign them to train and get stronger."
+                        },
+                        new
+                        {
+                            Id = 14,
+                            Name = "navigational unit",
+                            Type = 1,
+                            Value = "This building is used to view the area around you."
+                        },
+                        new
+                        {
+                            Id = 15,
+                            Name = "radar",
+                            Type = 1,
+                            Value = "This building picks up enemy attacks and any troop movement to your base."
+                        },
+                        new
+                        {
+                            Id = 16,
+                            Name = "medical facility",
+                            Type = 1,
+                            Value = "This building is used to heal your troops after they get hurt."
+                        },
+                        new
+                        {
+                            Id = 17,
+                            Name = "research facility",
+                            Type = 1,
+                            Value = "This building is used to unlock new units and abilities."
+                        },
+                        new
+                        {
+                            Id = 18,
+                            Name = "tradepost",
+                            Type = 1,
+                            Value = "This building is used to send resources to other players."
+                        },
+                        new
+                        {
+                            Id = 19,
+                            Name = "market",
+                            Type = 1,
+                            Value = "This building is used to trade resources with locals of the new planet."
+                        },
+                        new
+                        {
+                            Id = 20,
+                            Name = "silos",
+                            Type = 1,
+                            Value = "Upgrade these buildings to increase your resource storage capabilities."
+                        },
+                        new
+                        {
+                            Id = 21,
+                            Name = "vaults",
+                            Type = 1,
+                            Value = "These buildings are used to protect your resources from raiders."
+                        },
+                        new
+                        {
+                            Id = 22,
+                            Name = "bunkers",
+                            Type = 1,
+                            Value = "These buildings offer protection to your ranged units when defending."
+                        },
+                        new
+                        {
+                            Id = 23,
+                            Name = "shield",
+                            Type = 1,
+                            Value = "Your shield offers all units and buildings protection when you are being attacked."
                         });
                 });
 
@@ -227,9 +394,6 @@ namespace API.Migrations
                     b.Property<int>("BaseId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("Description")
-                        .HasColumnType("TEXT");
-
                     b.Property<int>("Level")
                         .HasColumnType("INTEGER");
 
@@ -254,7 +418,6 @@ namespace API.Migrations
                         {
                             Id = 1,
                             BaseId = 1,
-                            Description = "Resource used for building and upgrading buildings.",
                             Level = 0,
                             Name = "Cement",
                             ProductionSpeed = 1000.0,
@@ -264,7 +427,6 @@ namespace API.Migrations
                         {
                             Id = 2,
                             BaseId = 1,
-                            Description = "Resource used for building and upgrading buildings, and units..",
                             Level = 0,
                             Name = "Metal",
                             ProductionSpeed = 1000.0,
@@ -274,7 +436,6 @@ namespace API.Migrations
                         {
                             Id = 3,
                             BaseId = 1,
-                            Description = "Resource used for building and upgrading buildings.",
                             Level = 0,
                             Name = "Lumber",
                             ProductionSpeed = 1000.0,
@@ -284,7 +445,6 @@ namespace API.Migrations
                         {
                             Id = 4,
                             BaseId = 1,
-                            Description = "Resource used for building and upgrading buildings, and creating and upgrading units, as well as keeping units alive and buildings functional.",
                             Level = 0,
                             Name = "Water",
                             ProductionSpeed = 1000.0,
@@ -294,7 +454,6 @@ namespace API.Migrations
                         {
                             Id = 5,
                             BaseId = 1,
-                            Description = "Resource used to keep units and workers alive.",
                             Level = 0,
                             Name = "Food",
                             ProductionSpeed = 1000.0,
@@ -304,7 +463,6 @@ namespace API.Migrations
                         {
                             Id = 6,
                             BaseId = 1,
-                            Description = "Resource used for building and upgrading buildings.",
                             Level = 0,
                             Name = "Oxygen",
                             ProductionSpeed = 1000.0,
@@ -314,9 +472,8 @@ namespace API.Migrations
                         {
                             Id = 7,
                             BaseId = 1,
-                            Description = "Resource used for building and upgrading buildings, and creating and upgrading units, as well as keeping units alive and buildings functional.",
                             Level = 0,
-                            Name = "Crystal_Blue",
+                            Name = "Blue_Crystal",
                             ProductionSpeed = 1000.0,
                             Type = 6
                         },
@@ -324,9 +481,8 @@ namespace API.Migrations
                         {
                             Id = 8,
                             BaseId = 1,
-                            Description = "Resource used for building and upgrading buildings, and creating and upgrading units, as well as keeping units alive and buildings functional.",
                             Level = 0,
-                            Name = "Crystal_Red",
+                            Name = "Red_Crystal",
                             ProductionSpeed = 1000.0,
                             Type = 7
                         },
@@ -334,7 +490,6 @@ namespace API.Migrations
                         {
                             Id = 9,
                             BaseId = 1,
-                            Description = "Resource rarely found in mines. Used to queue building and unit upgrades",
                             Level = 0,
                             Name = "Gold",
                             ProductionSpeed = 50.0,
@@ -344,7 +499,6 @@ namespace API.Migrations
                         {
                             Id = 10,
                             BaseId = 1,
-                            Description = "Resource used for building and upgrading buildings.",
                             Level = 0,
                             Name = "Cement",
                             ProductionSpeed = 1000.0,
@@ -354,7 +508,6 @@ namespace API.Migrations
                         {
                             Id = 11,
                             BaseId = 1,
-                            Description = "Resource used for building and upgrading buildings, and units..",
                             Level = 0,
                             Name = "Metal",
                             ProductionSpeed = 1000.0,
@@ -364,7 +517,6 @@ namespace API.Migrations
                         {
                             Id = 12,
                             BaseId = 1,
-                            Description = "Resource used for building and upgrading buildings.",
                             Level = 0,
                             Name = "Lumber",
                             ProductionSpeed = 1000.0,
@@ -374,7 +526,6 @@ namespace API.Migrations
                         {
                             Id = 13,
                             BaseId = 1,
-                            Description = "Resource used for building and upgrading buildings, and creating and upgrading units, as well as keeping units alive and buildings functional.",
                             Level = 0,
                             Name = "Water",
                             ProductionSpeed = 1000.0,
@@ -384,7 +535,6 @@ namespace API.Migrations
                         {
                             Id = 14,
                             BaseId = 1,
-                            Description = "Resource used to keep units and workers alive.",
                             Level = 0,
                             Name = "Food",
                             ProductionSpeed = 1000.0,
@@ -394,7 +544,6 @@ namespace API.Migrations
                         {
                             Id = 15,
                             BaseId = 1,
-                            Description = "Resource used for building and upgrading buildings.",
                             Level = 0,
                             Name = "Oxygen",
                             ProductionSpeed = 1000.0,
@@ -404,9 +553,8 @@ namespace API.Migrations
                         {
                             Id = 16,
                             BaseId = 1,
-                            Description = "Resource used for building and upgrading buildings, and creating and upgrading units, as well as keeping units alive and buildings functional.",
                             Level = 0,
-                            Name = "Crystal_Blue",
+                            Name = "Blue_Crystal",
                             ProductionSpeed = 1000.0,
                             Type = 6
                         },
@@ -414,9 +562,8 @@ namespace API.Migrations
                         {
                             Id = 17,
                             BaseId = 1,
-                            Description = "Resource used for building and upgrading buildings, and creating and upgrading units, as well as keeping units alive and buildings functional.",
                             Level = 0,
-                            Name = "Crystal_Red",
+                            Name = "Red_Crystal",
                             ProductionSpeed = 1000.0,
                             Type = 7
                         },
@@ -424,7 +571,6 @@ namespace API.Migrations
                         {
                             Id = 18,
                             BaseId = 1,
-                            Description = "Resource rarely found in mines. Used to queue building and unit upgrades",
                             Level = 0,
                             Name = "Gold",
                             ProductionSpeed = 50.0,
@@ -441,13 +587,10 @@ namespace API.Migrations
                     b.Property<int>("BaseId")
                         .HasColumnType("INTEGER");
 
+                    b.Property<double>("Blue_Crystal")
+                        .HasColumnType("REAL");
+
                     b.Property<double>("Cement")
-                        .HasColumnType("REAL");
-
-                    b.Property<double>("Crystal_Blue")
-                        .HasColumnType("REAL");
-
-                    b.Property<double>("Crystal_Red")
                         .HasColumnType("REAL");
 
                     b.Property<double>("Food")
@@ -465,6 +608,9 @@ namespace API.Migrations
                     b.Property<double>("Oxygen")
                         .HasColumnType("REAL");
 
+                    b.Property<double>("Red_Crystal")
+                        .HasColumnType("REAL");
+
                     b.Property<double>("Water")
                         .HasColumnType("REAL");
 
@@ -480,14 +626,14 @@ namespace API.Migrations
                         {
                             Id = 1,
                             BaseId = 1,
+                            Blue_Crystal = 3000.0,
                             Cement = 3000.0,
-                            Crystal_Blue = 3000.0,
-                            Crystal_Red = 3000.0,
                             Food = 3000.0,
                             Gold = 1000.0,
                             Lumber = 3000.0,
                             Metal = 3000.0,
                             Oxygen = 3000.0,
+                            Red_Crystal = 3000.0,
                             Water = 3000.0
                         });
                 });

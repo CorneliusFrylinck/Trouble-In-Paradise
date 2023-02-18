@@ -57,7 +57,7 @@ namespace API.Controllers
         /// <param name="id"></param>
         /// <returns></returns>
         [HttpGet("resources/production/{baseId}")]
-        public async Task<ActionResult<ResourceProductionRequestDto>> GetResouceProductionRateAsync(int baseId)
+        public async Task<ActionResult<ResourceProductionResponseDto>> GetResouceProductionRateAsync(int baseId)
         {
             var response = await basesRepository.GetBaseResourceProductionRatesByBaseIdAsync(baseId);
 

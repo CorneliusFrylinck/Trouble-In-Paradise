@@ -8,8 +8,8 @@
         Water = 3,
         Food = 4,
         Oxygen = 5,
-        Crystal_Blue = 6,
-        Crystal_Red = 7,
+        Blue_Crystal = 6,
+        Red_Crystal = 7,
         Gold = 8
     }
 }
