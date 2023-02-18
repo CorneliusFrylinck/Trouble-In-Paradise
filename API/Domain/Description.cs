@@ -5,13 +5,13 @@ namespace API.Domain
 {
     public class Description
     {
-        public Description(DescriptionTypeEnum type, string name, string value)
+        public Description(TargetTypeEnum type, string name, string value)
         {
             Type = type;
             Name = name;
             Value = value;
         }
-        public Description(DescriptionTypeEnum type, string name, string value, int id)
+        public Description(TargetTypeEnum type, string name, string value, int id)
         {
             Type = type;
             Name = name;
@@ -22,7 +22,7 @@ namespace API.Domain
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-        public DescriptionTypeEnum Type { get; set; }
+        public TargetTypeEnum Type { get; set; }
         public string Name { get; set; }
         public string Value { get; set; } = null!;
     }

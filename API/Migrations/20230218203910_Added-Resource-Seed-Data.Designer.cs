@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace API.Migrations
 {
     [DbContext(typeof(BetaContext))]
-    [Migration("20230218100152_Initial-Create")]
-    partial class InitialCreate
+    [Migration("20230218203910_Added-Resource-Seed-Data")]
+    partial class AddedResourceSeedData
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -53,7 +53,7 @@ namespace API.Migrations
                             Id = 1,
                             BaseX = 200,
                             BaseY = 200,
-                            Created = new DateTime(2023, 2, 18, 10, 1, 51, 669, DateTimeKind.Utc).AddTicks(1121),
+                            Created = new DateTime(2023, 2, 18, 20, 39, 9, 344, DateTimeKind.Utc).AddTicks(2953),
                             Description = "Just a test bois",
                             Name = "Base 1"
                         });
@@ -258,7 +258,7 @@ namespace API.Migrations
                             Id = 8,
                             Name = "red_crystal",
                             Type = 0,
-                            Value = "Resource used for building and upgrading buildings, and creating and upgrading units, as well as keeping units alive and buildings functional."
+                            Value = "Resource used for building and upgrading buildings, and creating and upgrading units, as well as keeping units alive and buildings functional. This resource is poweful but difficult to find and mine."
                         },
                         new
                         {
@@ -637,6 +637,205 @@ namespace API.Migrations
                             Oxygen = 3000.0,
                             Red_Crystal = 3000.0,
                             Water = 3000.0
+                        });
+                });
+
+            modelBuilder.Entity("API.Domain.UpgradeDetail", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<double>("Blue_CrystalCost")
+                        .HasColumnType("REAL");
+
+                    b.Property<double>("CementCost")
+                        .HasColumnType("REAL");
+
+                    b.Property<double>("FoodCost")
+                        .HasColumnType("REAL");
+
+                    b.Property<double>("GoldCost")
+                        .HasColumnType("REAL");
+
+                    b.Property<double>("LevelCostMultiplier")
+                        .HasColumnType("REAL");
+
+                    b.Property<double>("LumberCost")
+                        .HasColumnType("REAL");
+
+                    b.Property<int>("MaxLevel")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<double>("MetalCost")
+                        .HasColumnType("REAL");
+
+                    b.Property<double>("OxygenCost")
+                        .HasColumnType("REAL");
+
+                    b.Property<double>("ProductionAfterUpgrade")
+                        .HasColumnType("REAL");
+
+                    b.Property<double>("Red_CrystalCost")
+                        .HasColumnType("REAL");
+
+                    b.Property<int>("UpgradeTarget")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("UpgradeTimeInSeconds")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<double>("WaterCost")
+                        .HasColumnType("REAL");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("UpgradeDetails");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Blue_CrystalCost = 1000.0,
+                            CementCost = 400.0,
+                            FoodCost = 670.0,
+                            GoldCost = 0.0,
+                            LevelCostMultiplier = 1.0,
+                            LumberCost = 320.0,
+                            MaxLevel = 40,
+                            MetalCost = 700.0,
+                            OxygenCost = 550.0,
+                            ProductionAfterUpgrade = 1000.0,
+                            Red_CrystalCost = 140.0,
+                            UpgradeTarget = 6,
+                            UpgradeTimeInSeconds = 10,
+                            WaterCost = 800.0
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Blue_CrystalCost = 1800.0,
+                            CementCost = 600.0,
+                            FoodCost = 530.0,
+                            GoldCost = 0.0,
+                            LevelCostMultiplier = 1.0,
+                            LumberCost = 590.0,
+                            MaxLevel = 40,
+                            MetalCost = 900.0,
+                            OxygenCost = 580.0,
+                            ProductionAfterUpgrade = 300.0,
+                            Red_CrystalCost = 200.0,
+                            UpgradeTarget = 7,
+                            UpgradeTimeInSeconds = 20,
+                            WaterCost = 910.0
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Blue_CrystalCost = 1200.0,
+                            CementCost = 860.0,
+                            FoodCost = 550.0,
+                            GoldCost = 0.0,
+                            LevelCostMultiplier = 1.0,
+                            LumberCost = 300.0,
+                            MaxLevel = 40,
+                            MetalCost = 520.0,
+                            OxygenCost = 500.0,
+                            ProductionAfterUpgrade = 1000.0,
+                            Red_CrystalCost = 170.0,
+                            UpgradeTarget = 0,
+                            UpgradeTimeInSeconds = 10,
+                            WaterCost = 600.0
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Blue_CrystalCost = 1250.0,
+                            CementCost = 350.0,
+                            FoodCost = 600.0,
+                            GoldCost = 0.0,
+                            LevelCostMultiplier = 1.0,
+                            LumberCost = 350.0,
+                            MaxLevel = 40,
+                            MetalCost = 930.0,
+                            OxygenCost = 540.0,
+                            ProductionAfterUpgrade = 1000.0,
+                            Red_CrystalCost = 140.0,
+                            UpgradeTarget = 1,
+                            UpgradeTimeInSeconds = 10,
+                            WaterCost = 550.0
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Blue_CrystalCost = 1100.0,
+                            CementCost = 400.0,
+                            FoodCost = 270.0,
+                            GoldCost = 0.0,
+                            LevelCostMultiplier = 1.0,
+                            LumberCost = 360.0,
+                            MaxLevel = 40,
+                            MetalCost = 430.0,
+                            OxygenCost = 790.0,
+                            ProductionAfterUpgrade = 1000.0,
+                            Red_CrystalCost = 100.0,
+                            UpgradeTarget = 4,
+                            UpgradeTimeInSeconds = 10,
+                            WaterCost = 900.0
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Blue_CrystalCost = 1150.0,
+                            CementCost = 440.0,
+                            FoodCost = 890.0,
+                            GoldCost = 0.0,
+                            LevelCostMultiplier = 1.0,
+                            LumberCost = 480.0,
+                            MaxLevel = 40,
+                            MetalCost = 550.0,
+                            OxygenCost = 760.0,
+                            ProductionAfterUpgrade = 1000.0,
+                            Red_CrystalCost = 200.0,
+                            UpgradeTarget = 2,
+                            UpgradeTimeInSeconds = 10,
+                            WaterCost = 450.0
+                        },
+                        new
+                        {
+                            Id = 7,
+                            Blue_CrystalCost = 1300.0,
+                            CementCost = 490.0,
+                            FoodCost = 620.0,
+                            GoldCost = 0.0,
+                            LevelCostMultiplier = 1.0,
+                            LumberCost = 560.0,
+                            MaxLevel = 40,
+                            MetalCost = 660.0,
+                            OxygenCost = 650.0,
+                            ProductionAfterUpgrade = 1000.0,
+                            Red_CrystalCost = 160.0,
+                            UpgradeTarget = 3,
+                            UpgradeTimeInSeconds = 10,
+                            WaterCost = 390.0
+                        },
+                        new
+                        {
+                            Id = 8,
+                            Blue_CrystalCost = 1400.0,
+                            CementCost = 520.0,
+                            FoodCost = 400.0,
+                            GoldCost = 0.0,
+                            LevelCostMultiplier = 1.0,
+                            LumberCost = 530.0,
+                            MaxLevel = 40,
+                            MetalCost = 780.0,
+                            OxygenCost = 300.0,
+                            ProductionAfterUpgrade = 1000.0,
+                            Red_CrystalCost = 110.0,
+                            UpgradeTarget = 5,
+                            UpgradeTimeInSeconds = 10,
+                            WaterCost = 640.0
                         });
                 });
 

@@ -27,7 +27,7 @@ const ResourceList = ({
                 setResources(r);
                 GetResources();
             })
-        }, 1000)
+        }, 500)
     }
 
     const GetResourceProductions = () => {

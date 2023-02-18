@@ -1,6 +1,6 @@
 ﻿namespace API.Domain
 {
-    public enum DescriptionTypeEnum
+    public enum TargetTypeEnum
     {
         Resource,
         Building
