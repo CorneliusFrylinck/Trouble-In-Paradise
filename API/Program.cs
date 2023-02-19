@@ -1,6 +1,7 @@
 using API.Persistence;
 using API.Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
+using API.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -19,6 +20,7 @@ builder.Services.AddDbContext<BetaContext>(options =>
 builder.Services.AddTransient<IBasesRepository, BasesRepository>();
 builder.Services.AddTransient<IEventsRepository, EventsRepository>();
 builder.Services.AddTransient<IBuildingsRepository, BuildingsRepository>();
+builder.Services.AddHostedService<UpdateService>();
 
 var app = builder.Build();
 

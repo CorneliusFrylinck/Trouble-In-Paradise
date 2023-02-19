@@ -9,7 +9,7 @@ const BaseRequests = {
 }
 
 const BuildingRequests = {
-    getResourceBuildingsByBuildingId: (baseId, name) => axios.get("buildings/getResourceBuildingsByBuildingId/"+baseId+"/"+name).then(response => response.data)
+    getResourceBuildings: (baseId, name) => axios.get("buildings/getResourceBuildings/"+baseId+"/"+name).then(response => response.data)
 }
 
 const agent = {

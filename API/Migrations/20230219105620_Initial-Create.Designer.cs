@@ -216,7 +216,7 @@ namespace API.Migrations
                             Id = 2,
                             Name = "metal",
                             Type = 0,
-                            Value = "Resource used for building and upgrading buildings, and units.."
+                            Value = "Resource used for building and upgrading buildings, and units."
                         },
                         new
                         {

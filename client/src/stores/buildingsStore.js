@@ -9,7 +9,7 @@ export default class BuildingsStore {
 
     getResourceBuildings = async(baseId, name) => {
         try {
-            return await agent.BuildingRequests.getResourceBuildingsByBuildingId(baseId, name);
+            return await agent.BuildingRequests.getResourceBuildings(baseId, name);
         } catch(e) {
             console.log(e);
         }

@@ -9,7 +9,7 @@ namespace API.Persistence.Extensions
         {
             modelBuilder.Entity<Description>().HasData(
                 new Description(TargetTypeEnum.Resource, "cement", "Resource used for building and upgrading buildings.", 1),
-                new Description(TargetTypeEnum.Resource, "metal", "Resource used for building and upgrading buildings, and units..", 2),
+                new Description(TargetTypeEnum.Resource, "metal", "Resource used for building and upgrading buildings, and units.", 2),
                 new Description(TargetTypeEnum.Resource, "lumber", "Resource used for building and upgrading buildings.", 3),
                 new Description(TargetTypeEnum.Resource, "water", "Resource used for building and upgrading buildings, and creating and upgrading units, as well as keeping units alive and buildings functional.", 4),
                 new Description(TargetTypeEnum.Resource, "food", "Resource used to keep units and workers alive.", 5),

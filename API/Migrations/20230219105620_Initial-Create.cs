@@ -167,7 +167,7 @@ namespace API.Migrations
             migrationBuilder.InsertData(
                 table: "Descriptions",
                 columns: new[] { "Id", "Name", "Type", "Value" },
-                values: new object[] { 2, "metal", 0, "Resource used for building and upgrading buildings, and units.." });
+                values: new object[] { 2, "metal", 0, "Resource used for building and upgrading buildings, and units." });
 
             migrationBuilder.InsertData(
                 table: "Descriptions",

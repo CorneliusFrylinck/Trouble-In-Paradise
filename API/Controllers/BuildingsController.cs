@@ -1,4 +1,5 @@
 ﻿using API.DTOs;
+using API.Infrastructure.Core;
 using API.Infrastructure.Repositories;
 using API.Persistence;
 using Microsoft.AspNetCore.Http;
@@ -18,9 +19,15 @@ namespace API.Controllers
         }
 
         [HttpGet("[action]/{baseId}/{name}")]
-        public async Task<ResourceBuildingResponseDto?> GetResourceBuildingsByBuildingId(int baseId, string name)
+        public async Task<ResourceBuildingResponseDto?> GetResourceBuildings(int baseId, string name)
         {
             return await buildingsRepository.GetResourceBuilding(baseId, name);
+        }
+
+        [HttpPost("[action]/{buildingId}")]
+        public async Task<Result> PostUpgradeResourceBuilding(int buildingId)
+        {
+            return await buildingsRepository.PostUpgradeResourceBuilding(buildingId);
         }
     }
 }

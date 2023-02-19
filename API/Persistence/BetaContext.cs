@@ -18,6 +18,7 @@ namespace API.Persistence
         public DbSet<Event> Events { get; set; } = null!;
         public DbSet<Description> Descriptions { get; set; } = null!;
         public DbSet<UpgradeDetail> UpgradeDetails { get; set; } = null!;
+        public DbSet<Upgrade> Upgrades { get; set; } = null!;
 
         /// <summary>
         /// Seed data on model creation.
@@ -25,6 +26,8 @@ namespace API.Persistence
         /// <param name="modelBuilder"></param>
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            // Composite key for upgrades, as each base has their own queue for upgrades
+            modelBuilder.Entity<Upgrade>().HasKey(u => new { u.BaseId, u.Queue });
 
             modelBuilder.SeedTestUser();
             modelBuilder.SeedStaticData();

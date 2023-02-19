@@ -62,3 +62,5 @@ C:\Dev\_Projects\TroubleInParadise\API\bin\Debug\net6.0\Microsoft.AspNetCore.Jso
 C:\Dev\_Projects\TroubleInParadise\API\bin\Debug\net6.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
 C:\Dev\_Projects\TroubleInParadise\API\bin\Debug\net6.0\Newtonsoft.Json.dll
 C:\Dev\_Projects\TroubleInParadise\API\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll
+C:\Dev\_Projects\TroubleInParadise\API\bin\Debug\net6.0\EntityFrameworkCore.Triggered.dll
+C:\Dev\_Projects\TroubleInParadise\API\bin\Debug\net6.0\EntityFrameworkCore.Triggered.Abstractions.dll

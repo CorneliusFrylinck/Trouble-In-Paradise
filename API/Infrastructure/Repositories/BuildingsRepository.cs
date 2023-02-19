@@ -1,8 +1,11 @@
 ﻿using API.Domain;
 using API.DTOs;
 using API.Persistence;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Diagnostics.Metrics;
+using Microsoft.AspNetCore.Http;
+using API.Infrastructure.Core;
 
 namespace API.Infrastructure.Repositories
 {
@@ -43,9 +46,53 @@ namespace API.Infrastructure.Repositories
             };
         }
 
+        public async Task<Result> PostUpgradeResourceBuilding(int buildingId)
+        {
+            // Get building to upgrade
+            var building = await betaContext.ResourceItems.Where(b => b.Id == buildingId).FirstOrDefaultAsync();
+            if (building == null) return new Result(404, "The building could not be found on this server.");
+
+            // Get the base upgrade to calculate the next upgrade
+            var upgrade = await betaContext.UpgradeDetails.Where(ud => ud.UpgradeTarget == GetTarget(building.Name)).FirstOrDefaultAsync();
+            if (upgrade == null) return new Result(404, "The building was not found on the upgradeable list.");
+
+            // Get the resource store to verify that the user has enough resources for the upgrade
+            var resourceStore = await betaContext.ResourceStores.Where(s => s.BaseId == building.BaseId).FirstOrDefaultAsync();
+            if (resourceStore == null) return new Result(404, "The building resource store was not found.");
+
+            // Calculate the prices for the next upgrade
+            var nextUpgrade = GetUpgradeDetails(upgrade, building.Level+1);
+
+            // Validate whether the user can afford the upgrade
+            if (!CanUpgrade(nextUpgrade, resourceStore)) 
+                return new Result(400, "You do not have enough resources to perform this upgrade.");
+
+            // Subtract resources
+            // Create update object
+
+            // Indicate success
+            return new Result(204, "Upgrade queued!");
+        }
+
+        private bool CanUpgrade(UpgradeDetail upgrade, ResourceStore store)
+        {
+            if (store.Oxygen < upgrade.OxygenCost) return false;
+            if (store.Blue_Crystal < upgrade.Blue_CrystalCost) return false;
+            if (store.Red_Crystal < upgrade.Red_CrystalCost) return false;
+            if (store.Metal < upgrade.MetalCost) return false;
+            if (store.Lumber < upgrade.LumberCost) return false;
+            if (store.Cement < upgrade.CementCost) return false;
+            if (store.Food < upgrade.FoodCost) return false;
+            if (store.Gold < upgrade.GoldCost) return false;
+
+            return true;
+        }
+
         private UpgradeDetail GetUpgradeDetails(UpgradeDetail upgrade, int level)
         {
+            // Multiplier is used to ensure that some buildings can increase in cost compared to others
             double multiplyer = upgrade.LevelCostMultiplier;
+            // Calculate updated costs for all resources
             upgrade.Blue_CrystalCost = GetUpdatedCost(upgrade.Blue_CrystalCost, level, multiplyer);
             upgrade.Red_CrystalCost = GetUpdatedCost(upgrade.Red_CrystalCost, level, multiplyer);
             upgrade.MetalCost = GetUpdatedCost(upgrade.MetalCost, level, multiplyer);

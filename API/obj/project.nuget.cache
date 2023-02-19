@@ -1,10 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "6I140MsmCKUJF6E/LJrm98Js6OUAvLiM+sXzM0YtMGdX8BZX2wmTdRMSmPcpDSgkch1NYIdCH4rAFsF14duMOg==",
+  "dgSpecHash": "HxLFlbK66B6iV+YHKd/NcPyh7hDpCLNMYyNvZBaRLF6e2dV4nIutJ6nfbvNpMl10QryjR/0muKZL20Iw+ZnFxA==",
   "success": true,
   "projectFilePath": "C:\\Dev\\_Projects\\TroubleInParadise\\API\\API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\cfryl\\.nuget\\packages\\castle.core\\4.4.1\\castle.core.4.4.1.nupkg.sha512",
+    "C:\\Users\\cfryl\\.nuget\\packages\\entityframeworkcore.triggered\\3.2.2\\entityframeworkcore.triggered.3.2.2.nupkg.sha512",
+    "C:\\Users\\cfryl\\.nuget\\packages\\entityframeworkcore.triggered.abstractions\\3.2.2\\entityframeworkcore.triggered.abstractions.3.2.2.nupkg.sha512",
     "C:\\Users\\cfryl\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\cfryl\\.nuget\\packages\\microsoft.aspnetcore.jsonpatch\\6.0.0\\microsoft.aspnetcore.jsonpatch.6.0.0.nupkg.sha512",
     "C:\\Users\\cfryl\\.nuget\\packages\\microsoft.aspnetcore.mvc.newtonsoftjson\\6.0.0\\microsoft.aspnetcore.mvc.newtonsoftjson.6.0.0.nupkg.sha512",

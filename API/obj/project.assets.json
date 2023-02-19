@@ -27,6 +27,36 @@
           }
         }
       },
+      "EntityFrameworkCore.Triggered/3.2.2": {
+        "type": "package",
+        "dependencies": {
+          "EntityFrameworkCore.Triggered.Abstractions": "3.2.2",
+          "Microsoft.EntityFrameworkCore": "6.0.0"
+        },
+        "compile": {
+          "lib/net6.0/EntityFrameworkCore.Triggered.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/EntityFrameworkCore.Triggered.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "EntityFrameworkCore.Triggered.Abstractions/3.2.2": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/EntityFrameworkCore.Triggered.Abstractions.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/EntityFrameworkCore.Triggered.Abstractions.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Humanizer.Core/2.8.26": {
         "type": "package",
         "compile": {
@@ -2214,6 +2244,32 @@
         "lib/netstandard1.5/Castle.Core.dll",
         "lib/netstandard1.5/Castle.Core.xml",
         "readme.txt"
+      ]
+    },
+    "EntityFrameworkCore.Triggered/3.2.2": {
+      "sha512": "TtbhqPZSiGW74EXgmCL9qoaBAfDkZdTc89T2/OCZ13JbsTOhzKkUF1iqUWIuPCrIgwDhsiRD/pe+AZApfYJQPw==",
+      "type": "package",
+      "path": "entityframeworkcore.triggered/3.2.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "entityframeworkcore.triggered.3.2.2.nupkg.sha512",
+        "entityframeworkcore.triggered.nuspec",
+        "lib/net6.0/EntityFrameworkCore.Triggered.dll",
+        "lib/net6.0/EntityFrameworkCore.Triggered.xml"
+      ]
+    },
+    "EntityFrameworkCore.Triggered.Abstractions/3.2.2": {
+      "sha512": "gMBLJlBeW5X4prp6San9Qo8sSxvLd3KJUOfIQxmLtOpNWVmNdfVgDR75gYTqblejg/Ci8eDqy0bUucxUcYyukA==",
+      "type": "package",
+      "path": "entityframeworkcore.triggered.abstractions/3.2.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "entityframeworkcore.triggered.abstractions.3.2.2.nupkg.sha512",
+        "entityframeworkcore.triggered.abstractions.nuspec",
+        "lib/net6.0/EntityFrameworkCore.Triggered.Abstractions.dll",
+        "lib/net6.0/EntityFrameworkCore.Triggered.Abstractions.xml"
       ]
     },
     "Humanizer.Core/2.8.26": {
@@ -6803,6 +6859,7 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "EntityFrameworkCore.Triggered >= 3.2.2",
       "Microsoft.AspNetCore.Mvc.NewtonsoftJson >= 6.0.0",
       "Microsoft.EntityFrameworkCore >= 6.0.0",
       "Microsoft.EntityFrameworkCore.Proxies >= 6.0.0",
@@ -6856,6 +6913,10 @@
       "net6.0": {
         "targetAlias": "net6.0",
         "dependencies": {
+          "EntityFrameworkCore.Triggered": {
+            "target": "Package",
+            "version": "[3.2.2, )"
+          },
           "Microsoft.AspNetCore.Mvc.NewtonsoftJson": {
             "target": "Package",
             "version": "[6.0.0, )"
