@@ -29,8 +29,8 @@ namespace API.Domain
             Food = 3000;
             Oxygen = 3000;
             Blue_Crystal = 3000;
-            Red_Crystal = 3000;
-            Gold = 1000;
+            Red_Crystal = 2000;
+            Gold = 5000;
             BaseId = baseId;
         }
         public ResourceStore(int baseId, int id)
@@ -42,8 +42,8 @@ namespace API.Domain
             Food = 3000;
             Oxygen = 3000;
             Blue_Crystal = 3000;
-            Red_Crystal = 3000;
-            Gold = 1000;
+            Red_Crystal = 2000;
+            Gold = 5000;
             BaseId = baseId;
             Id = id;
         }

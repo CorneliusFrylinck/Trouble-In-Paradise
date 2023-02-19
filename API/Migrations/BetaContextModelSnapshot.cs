@@ -51,7 +51,7 @@ namespace API.Migrations
                             Id = 1,
                             BaseX = 200,
                             BaseY = 200,
-                            Created = new DateTime(2023, 2, 18, 20, 39, 9, 344, DateTimeKind.Utc).AddTicks(2953),
+                            Created = new DateTime(2023, 2, 19, 10, 56, 19, 564, DateTimeKind.Utc).AddTicks(3232),
                             Description = "Just a test bois",
                             Name = "Base 1"
                         });
@@ -483,7 +483,7 @@ namespace API.Migrations
                             BaseId = 1,
                             Level = 0,
                             Name = "Red_Crystal",
-                            ProductionSpeed = 1000.0,
+                            ProductionSpeed = 200.0,
                             Type = 7
                         },
                         new
@@ -492,7 +492,7 @@ namespace API.Migrations
                             BaseId = 1,
                             Level = 0,
                             Name = "Gold",
-                            ProductionSpeed = 50.0,
+                            ProductionSpeed = 5.0,
                             Type = 8
                         },
                         new
@@ -564,7 +564,7 @@ namespace API.Migrations
                             BaseId = 1,
                             Level = 0,
                             Name = "Red_Crystal",
-                            ProductionSpeed = 1000.0,
+                            ProductionSpeed = 200.0,
                             Type = 7
                         },
                         new
@@ -573,7 +573,7 @@ namespace API.Migrations
                             BaseId = 1,
                             Level = 0,
                             Name = "Gold",
-                            ProductionSpeed = 50.0,
+                            ProductionSpeed = 5.0,
                             Type = 8
                         });
                 });
@@ -629,11 +629,11 @@ namespace API.Migrations
                             Blue_Crystal = 3000.0,
                             Cement = 3000.0,
                             Food = 3000.0,
-                            Gold = 1000.0,
+                            Gold = 5000.0,
                             Lumber = 3000.0,
                             Metal = 3000.0,
                             Oxygen = 3000.0,
-                            Red_Crystal = 3000.0,
+                            Red_Crystal = 2000.0,
                             Water = 3000.0
                         });
                 });
@@ -834,6 +834,24 @@ namespace API.Migrations
                             UpgradeTarget = 5,
                             UpgradeTimeInSeconds = 10,
                             WaterCost = 640.0
+                        },
+                        new
+                        {
+                            Id = 9,
+                            Blue_CrystalCost = 2100.0,
+                            CementCost = 410.0,
+                            FoodCost = 550.0,
+                            GoldCost = 0.0,
+                            LevelCostMultiplier = 4.0,
+                            LumberCost = 630.0,
+                            MaxLevel = 40,
+                            MetalCost = 580.0,
+                            OxygenCost = 890.0,
+                            ProductionAfterUpgrade = 10.0,
+                            Red_CrystalCost = 210.0,
+                            UpgradeTarget = 8,
+                            UpgradeTimeInSeconds = 30,
+                            WaterCost = 840.0
                         });
                 });
 

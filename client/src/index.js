@@ -13,8 +13,8 @@ root.render(
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<App/>}></Route>
-        <Route path='/resource/:name' element={<ResourcePage />}></Route>
-        <Route path='/building/:name' element={<BuildingPage />}></Route>
+        <Route path='/resource/:baseId/:name' element={<ResourcePage />}></Route>
+        <Route path='/building/:baseId/:name' element={<BuildingPage />}></Route>
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

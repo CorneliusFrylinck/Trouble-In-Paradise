@@ -8,8 +8,13 @@ const BaseRequests = {
     getResourceProductionsByBaseId: (id) => axios.get("bases/resources/production/"+id).then(response => response.data),
 }
 
+const BuildingRequests = {
+    getResourceBuildingsByBuildingId: (baseId, name) => axios.get("buildings/getResourceBuildingsByBuildingId/"+baseId+"/"+name).then(response => response.data)
+}
+
 const agent = {
-    BaseRequests
+    BaseRequests,
+    BuildingRequests
 }
 
 export default agent;

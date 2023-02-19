@@ -17,7 +17,8 @@ namespace API.Persistence.Extensions
                 new UpgradeDetail(40, 1, UpgradeTarget.Food, 430, 400, 360, 900, 270, 790, 1100, 100, 0, 10, 1000, generatedId++),
                 new UpgradeDetail(40, 1, UpgradeTarget.Lumber, 550, 440, 480, 450, 890, 760, 1150, 200, 0, 10, 1000, generatedId++),
                 new UpgradeDetail(40, 1, UpgradeTarget.Water, 660, 490, 560, 390, 620, 650, 1300, 160, 0, 10, 1000, generatedId++),
-                new UpgradeDetail(40, 1, UpgradeTarget.Oxygen, 780, 520, 530, 640, 400, 300, 1400, 110, 0, 10, 1000, generatedId++)
+                new UpgradeDetail(40, 1, UpgradeTarget.Oxygen, 780, 520, 530, 640, 400, 300, 1400, 110, 0, 10, 1000, generatedId++),
+                new UpgradeDetail(40, 4, UpgradeTarget.Gold, 580, 410, 630, 840, 550, 890, 2100, 210, 0, 30, 10, generatedId++)
             );
 
             return modelBuilder;

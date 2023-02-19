@@ -26,8 +26,8 @@ namespace API.Persistence.Extensions
                 new ResourceItem("Food", 0, 1000, 1, 5),
                 new ResourceItem("Oxygen", 0, 1000, 1, 6),
                 new ResourceItem("Blue_Crystal", 0, 1000, 1, 7),
-                new ResourceItem("Red_Crystal", 0, 1000, 1, 8),
-                new ResourceItem("Gold", 0, 50, 1, 9),
+                new ResourceItem("Red_Crystal", 0, 200, 1, 8),
+                new ResourceItem("Gold", 0, 5, 1, 9),
                 new ResourceItem("Cement", 0, 1000, 1, 10),
                 new ResourceItem("Metal", 0, 1000, 1, 11),
                 new ResourceItem("Lumber", 0, 1000, 1, 12),
@@ -35,8 +35,8 @@ namespace API.Persistence.Extensions
                 new ResourceItem("Food", 0, 1000, 1, 14),
                 new ResourceItem("Oxygen", 0, 1000, 1, 15),
                 new ResourceItem("Blue_Crystal", 0, 1000, 1, 16),
-                new ResourceItem("Red_Crystal", 0, 1000, 1, 17),
-                new ResourceItem("Gold", 0, 50, 1, 18)
+                new ResourceItem("Red_Crystal", 0, 200, 1, 17),
+                new ResourceItem("Gold", 0, 5, 1, 18)
             );
             modelBuilder.Entity<Building>().HasData(
                 new Building("Command Centre", 1)

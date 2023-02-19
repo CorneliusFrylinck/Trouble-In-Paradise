@@ -18,6 +18,7 @@ builder.Services.AddDbContext<BetaContext>(options =>
 });
 builder.Services.AddTransient<IBasesRepository, BasesRepository>();
 builder.Services.AddTransient<IEventsRepository, EventsRepository>();
+builder.Services.AddTransient<IBuildingsRepository, BuildingsRepository>();
 
 var app = builder.Build();
 

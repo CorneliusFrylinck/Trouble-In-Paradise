@@ -1,0 +1,63 @@
+.metal-color {
+    color: #5a4044;
+}
+
+.cement-color {
+    color: #e8c7e8;
+}
+
+.lumber-color {
+    color: #833415;
+}
+
+.water-color {
+    color: #61699a;
+}
+
+.food-color {
+    color: #187661;
+}
+
+.oxygen-color {
+    color: #aeb8e4;
+}
+
+.blue-crystal-color {
+    color: #00c1ff;
+}
+
+.red-crystal-color {
+    color: #ff0000;
+}
+
+.gold-color {
+    color: #a3a034;
+}
+
+.upgrade-btn {
+    padding: 0.2rem 0.6rem;
+    padding-bottom: 0.4rem;
+    margin-top: 0.5rem;
+    background-color: blue;
+    color: whitesmoke;
+    font-weight: 600;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.upgrade-btn:disabled {
+    background-color: gray;
+    color: lightgray;
+    cursor: not-allowed;
+}
+
+.resource-buildings {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.resource-building > div:not(.upgrade-costs) {
+    margin-left: 1rem;
+}
