@@ -83,6 +83,22 @@ namespace API.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Upgrades",
+                columns: table => new
+                {
+                    BaseId = table.Column<int>(type: "INTEGER", nullable: false),
+                    Queue = table.Column<int>(type: "INTEGER", nullable: false),
+                    BuildingId = table.Column<int>(type: "INTEGER", nullable: false),
+                    TimeInSeconds = table.Column<int>(type: "INTEGER", nullable: false),
+                    StartTime = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    CreationTime = table.Column<DateTime>(type: "TEXT", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Upgrades", x => new { x.BaseId, x.Queue });
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Buildings",
                 columns: table => new
                 {
@@ -157,7 +173,7 @@ namespace API.Migrations
             migrationBuilder.InsertData(
                 table: "Bases",
                 columns: new[] { "Id", "BaseX", "BaseY", "Created", "Description", "Name" },
-                values: new object[] { 1, 200, 200, new DateTime(2023, 2, 19, 10, 56, 19, 564, DateTimeKind.Utc).AddTicks(3232), "Just a test bois", "Base 1" });
+                values: new object[] { 1, 200, 200, new DateTime(2023, 2, 20, 21, 25, 25, 939, DateTimeKind.Utc).AddTicks(414), "Just a test bois", "Base 1" });
 
             migrationBuilder.InsertData(
                 table: "Descriptions",
@@ -392,37 +408,37 @@ namespace API.Migrations
             migrationBuilder.InsertData(
                 table: "ResourceItems",
                 columns: new[] { "Id", "BaseId", "Level", "Name", "ProductionSpeed", "Type" },
-                values: new object[] { 1, 1, 0, "Cement", 1000.0, 1 });
+                values: new object[] { 1, 1, 0, "Cement", 500.0, 1 });
 
             migrationBuilder.InsertData(
                 table: "ResourceItems",
                 columns: new[] { "Id", "BaseId", "Level", "Name", "ProductionSpeed", "Type" },
-                values: new object[] { 2, 1, 0, "Metal", 1000.0, 0 });
+                values: new object[] { 2, 1, 0, "Metal", 500.0, 0 });
 
             migrationBuilder.InsertData(
                 table: "ResourceItems",
                 columns: new[] { "Id", "BaseId", "Level", "Name", "ProductionSpeed", "Type" },
-                values: new object[] { 3, 1, 0, "Lumber", 1000.0, 2 });
+                values: new object[] { 3, 1, 0, "Lumber", 500.0, 2 });
 
             migrationBuilder.InsertData(
                 table: "ResourceItems",
                 columns: new[] { "Id", "BaseId", "Level", "Name", "ProductionSpeed", "Type" },
-                values: new object[] { 4, 1, 0, "Water", 1000.0, 3 });
+                values: new object[] { 4, 1, 0, "Water", 500.0, 3 });
 
             migrationBuilder.InsertData(
                 table: "ResourceItems",
                 columns: new[] { "Id", "BaseId", "Level", "Name", "ProductionSpeed", "Type" },
-                values: new object[] { 5, 1, 0, "Food", 1000.0, 4 });
+                values: new object[] { 5, 1, 0, "Food", 500.0, 4 });
 
             migrationBuilder.InsertData(
                 table: "ResourceItems",
                 columns: new[] { "Id", "BaseId", "Level", "Name", "ProductionSpeed", "Type" },
-                values: new object[] { 6, 1, 0, "Oxygen", 1000.0, 5 });
+                values: new object[] { 6, 1, 0, "Oxygen", 500.0, 5 });
 
             migrationBuilder.InsertData(
                 table: "ResourceItems",
                 columns: new[] { "Id", "BaseId", "Level", "Name", "ProductionSpeed", "Type" },
-                values: new object[] { 7, 1, 0, "Blue_Crystal", 1000.0, 6 });
+                values: new object[] { 7, 1, 0, "Blue_Crystal", 500.0, 6 });
 
             migrationBuilder.InsertData(
                 table: "ResourceItems",
@@ -437,37 +453,37 @@ namespace API.Migrations
             migrationBuilder.InsertData(
                 table: "ResourceItems",
                 columns: new[] { "Id", "BaseId", "Level", "Name", "ProductionSpeed", "Type" },
-                values: new object[] { 10, 1, 0, "Cement", 1000.0, 1 });
+                values: new object[] { 10, 1, 0, "Cement", 500.0, 1 });
 
             migrationBuilder.InsertData(
                 table: "ResourceItems",
                 columns: new[] { "Id", "BaseId", "Level", "Name", "ProductionSpeed", "Type" },
-                values: new object[] { 11, 1, 0, "Metal", 1000.0, 0 });
+                values: new object[] { 11, 1, 0, "Metal", 500.0, 0 });
 
             migrationBuilder.InsertData(
                 table: "ResourceItems",
                 columns: new[] { "Id", "BaseId", "Level", "Name", "ProductionSpeed", "Type" },
-                values: new object[] { 12, 1, 0, "Lumber", 1000.0, 2 });
+                values: new object[] { 12, 1, 0, "Lumber", 500.0, 2 });
 
             migrationBuilder.InsertData(
                 table: "ResourceItems",
                 columns: new[] { "Id", "BaseId", "Level", "Name", "ProductionSpeed", "Type" },
-                values: new object[] { 13, 1, 0, "Water", 1000.0, 3 });
+                values: new object[] { 13, 1, 0, "Water", 500.0, 3 });
 
             migrationBuilder.InsertData(
                 table: "ResourceItems",
                 columns: new[] { "Id", "BaseId", "Level", "Name", "ProductionSpeed", "Type" },
-                values: new object[] { 14, 1, 0, "Food", 1000.0, 4 });
+                values: new object[] { 14, 1, 0, "Food", 500.0, 4 });
 
             migrationBuilder.InsertData(
                 table: "ResourceItems",
                 columns: new[] { "Id", "BaseId", "Level", "Name", "ProductionSpeed", "Type" },
-                values: new object[] { 15, 1, 0, "Oxygen", 1000.0, 5 });
+                values: new object[] { 15, 1, 0, "Oxygen", 500.0, 5 });
 
             migrationBuilder.InsertData(
                 table: "ResourceItems",
                 columns: new[] { "Id", "BaseId", "Level", "Name", "ProductionSpeed", "Type" },
-                values: new object[] { 16, 1, 0, "Blue_Crystal", 1000.0, 6 });
+                values: new object[] { 16, 1, 0, "Blue_Crystal", 500.0, 6 });
 
             migrationBuilder.InsertData(
                 table: "ResourceItems",
@@ -520,6 +536,9 @@ namespace API.Migrations
 
             migrationBuilder.DropTable(
                 name: "UpgradeDetails");
+
+            migrationBuilder.DropTable(
+                name: "Upgrades");
 
             migrationBuilder.DropTable(
                 name: "Bases");

@@ -21,8 +21,12 @@ namespace API.Domain
         /// </summary>
         public int TimeInSeconds { get; set; }
         /// <summary>
-        /// The time that the upgrade has started, set on the trigger.
+        /// The time that the upgrade has started, set on the UpgradeService.
         /// </summary>
-        public DateTime StartTime { get; set; }
+        public DateTime? StartTime { get; set; } = null!;
+        /// <summary>
+        /// The time that the upgrade has created.
+        /// </summary>
+        public DateTime CreationTime { get; set; } = DateTime.UtcNow;
     }
 }

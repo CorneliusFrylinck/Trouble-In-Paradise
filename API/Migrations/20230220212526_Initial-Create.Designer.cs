@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace API.Migrations
 {
     [DbContext(typeof(BetaContext))]
-    [Migration("20230219213533_Added-Upgrades")]
-    partial class AddedUpgrades
+    [Migration("20230220212526_Initial-Create")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -53,7 +53,7 @@ namespace API.Migrations
                             Id = 1,
                             BaseX = 200,
                             BaseY = 200,
-                            Created = new DateTime(2023, 2, 19, 21, 35, 32, 364, DateTimeKind.Utc).AddTicks(134),
+                            Created = new DateTime(2023, 2, 20, 21, 25, 25, 939, DateTimeKind.Utc).AddTicks(414),
                             Description = "Just a test bois",
                             Name = "Base 1"
                         });
@@ -422,7 +422,7 @@ namespace API.Migrations
                             BaseId = 1,
                             Level = 0,
                             Name = "Cement",
-                            ProductionSpeed = 1000.0,
+                            ProductionSpeed = 500.0,
                             Type = 1
                         },
                         new
@@ -431,7 +431,7 @@ namespace API.Migrations
                             BaseId = 1,
                             Level = 0,
                             Name = "Metal",
-                            ProductionSpeed = 1000.0,
+                            ProductionSpeed = 500.0,
                             Type = 0
                         },
                         new
@@ -440,7 +440,7 @@ namespace API.Migrations
                             BaseId = 1,
                             Level = 0,
                             Name = "Lumber",
-                            ProductionSpeed = 1000.0,
+                            ProductionSpeed = 500.0,
                             Type = 2
                         },
                         new
@@ -449,7 +449,7 @@ namespace API.Migrations
                             BaseId = 1,
                             Level = 0,
                             Name = "Water",
-                            ProductionSpeed = 1000.0,
+                            ProductionSpeed = 500.0,
                             Type = 3
                         },
                         new
@@ -458,7 +458,7 @@ namespace API.Migrations
                             BaseId = 1,
                             Level = 0,
                             Name = "Food",
-                            ProductionSpeed = 1000.0,
+                            ProductionSpeed = 500.0,
                             Type = 4
                         },
                         new
@@ -467,7 +467,7 @@ namespace API.Migrations
                             BaseId = 1,
                             Level = 0,
                             Name = "Oxygen",
-                            ProductionSpeed = 1000.0,
+                            ProductionSpeed = 500.0,
                             Type = 5
                         },
                         new
@@ -476,7 +476,7 @@ namespace API.Migrations
                             BaseId = 1,
                             Level = 0,
                             Name = "Blue_Crystal",
-                            ProductionSpeed = 1000.0,
+                            ProductionSpeed = 500.0,
                             Type = 6
                         },
                         new
@@ -503,7 +503,7 @@ namespace API.Migrations
                             BaseId = 1,
                             Level = 0,
                             Name = "Cement",
-                            ProductionSpeed = 1000.0,
+                            ProductionSpeed = 500.0,
                             Type = 1
                         },
                         new
@@ -512,7 +512,7 @@ namespace API.Migrations
                             BaseId = 1,
                             Level = 0,
                             Name = "Metal",
-                            ProductionSpeed = 1000.0,
+                            ProductionSpeed = 500.0,
                             Type = 0
                         },
                         new
@@ -521,7 +521,7 @@ namespace API.Migrations
                             BaseId = 1,
                             Level = 0,
                             Name = "Lumber",
-                            ProductionSpeed = 1000.0,
+                            ProductionSpeed = 500.0,
                             Type = 2
                         },
                         new
@@ -530,7 +530,7 @@ namespace API.Migrations
                             BaseId = 1,
                             Level = 0,
                             Name = "Water",
-                            ProductionSpeed = 1000.0,
+                            ProductionSpeed = 500.0,
                             Type = 3
                         },
                         new
@@ -539,7 +539,7 @@ namespace API.Migrations
                             BaseId = 1,
                             Level = 0,
                             Name = "Food",
-                            ProductionSpeed = 1000.0,
+                            ProductionSpeed = 500.0,
                             Type = 4
                         },
                         new
@@ -548,7 +548,7 @@ namespace API.Migrations
                             BaseId = 1,
                             Level = 0,
                             Name = "Oxygen",
-                            ProductionSpeed = 1000.0,
+                            ProductionSpeed = 500.0,
                             Type = 5
                         },
                         new
@@ -557,7 +557,7 @@ namespace API.Migrations
                             BaseId = 1,
                             Level = 0,
                             Name = "Blue_Crystal",
-                            ProductionSpeed = 1000.0,
+                            ProductionSpeed = 500.0,
                             Type = 6
                         },
                         new
@@ -650,6 +650,9 @@ namespace API.Migrations
 
                     b.Property<int>("BuildingId")
                         .HasColumnType("INTEGER");
+
+                    b.Property<DateTime>("CreationTime")
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime>("StartTime")
                         .HasColumnType("TEXT");
